@@ -12,11 +12,11 @@ module.exports = (req, res) => {
           req.session.userId = user._id
           res.redirect('/')
         } else {
-          res.redirect('/user/loginpage')
+          res.redirect('/vendor/loginpage')
         }
       })
     } else { 
-      return res.redirect('/user/loginpage')
+      return res.redirect('/vendor/loginpage')
     }
   })
 }

@@ -19,6 +19,9 @@ const loginUserController = require("./controllers/loginUser");
 const logoutController = require("./controllers/logout");
 const createVendorController = require("./controllers/createVendor");
 const storeVendorController = require("./controllers/storeVendor");
+const vendorLoginController = require("./controllers/vendorLogin");
+const loginVendorController = require("./controllers/loginVendor");
+const vendorHomePageController = require
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp");
@@ -53,12 +56,15 @@ const storePost = require("./middleware/storePost");
 const auth = require("./middleware/auth");
 const redirectIfAuthenticated = require("./middleware/redirectIfAuthenticated");
 
-app.get("/", homePageController);
+app.get("/user", homePageController);
+app.get("/vendor", vendorHomePageController);
 app.get("/post/:id", getPostController);
 app.get("/auth/logout", auth, logoutController);
 app.get("/posts/new", auth, createPostController);
 app.post("/posts/store", auth, storePost, storePostController);
-app.get("/auth/login", redirectIfAuthenticated, loginController);
+app.get("/vendor/loginpage", redirectIfAuthenticated, vendorLoginController);
+app.get("/user/loginpage", redirectIfAuthenticated, loginController);
+app.post("/vendor/login", redirectIfAuthenticated, loginVendorController);
 app.post("/users/login", redirectIfAuthenticated, loginUserController);
 app.get("/vendor/register", redirectIfAuthenticated, createVendorController);
 app.post("/vendor/store", redirectIfAuthenticated, storeVendorController);
