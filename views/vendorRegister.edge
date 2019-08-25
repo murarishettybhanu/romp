@@ -32,18 +32,20 @@
 
 <body>
     <nav class="navbar navbar-light" style="background: #ffcc00">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <div class="form-inline">
                 <img src="https://romp.co.in/assets/logo.png" width="70" height="70"
                     class="d-inline-block align-top ml-3 mt-3" alt="">
-                <p class="ml-3 mt-4" id="navbrand">Romp | Vendor | Register</p>
+                <a href="/">
+                    <p class="ml-3 mt-4" id="navbrand">Romp | Vendor | Register</p>
+                </a>
             </div>
         </a>
     </nav>
     <div class="container m-md-5 p-md-5">
         <form action="/vendor/store" method="POST" encType="multipart/form-data">
             Vendor name <br><br>
-            <input type="text" class="form-control" name="vendorName" required ><br>
+            <input type="text" class="form-control" name="vendorName" required><br>
             Vendor Location<br><br>
             <input type="text" class="form-control" name="vendorLocation" required><br>
             Vendor Display Pic<br><br>

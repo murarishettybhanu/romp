@@ -5,6 +5,6 @@ module.exports = (req, res) => {
     if (error) {
       return res.redirect('/user/register')
     }
-    res.redirect('/')
+    res.redirect('/user/loginpage')
   })
 }
