@@ -10,7 +10,12 @@ module.exports = (req, res) => {
       image: `/posts/${image.name}`,
       author_id: req.session.userId
     }, (error, post) => {
-      res.redirect("/");
+      if(post){
+        res.redirect("createPost");
+      }
+      else{
+        res.redirect("createPost");
+      }
     });
   })
 }

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    .element {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @media screen and (min-width: 1000px) {
+        #search {
+            width: 25%;
+        }
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light mb-5">
+            <a class="navbar-brand" href="#" style="color:white">Romp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Social</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Search</a>
+                    </li>
+                    @if(auth)
+                    <li class="nav-item">
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">{{user.username}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/logout">Logout</a>
+                    </li>
+                    @endif
+                    @if(!auth)
+                    <li class="nav-item">
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/user/loginpage">User
+                            login/Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/vendor/login">Vendor login</a>
+                    </li>
+                    @endif
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="row mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
+        <div class="col-md-2 form-inline">
+            <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"></div>
+            <p class="ml-2 mt-3">{{vendor.vendorName}}<br>{{vendor.vendorLocation}}</p>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="" class="form-control mt-4 border-dark" placeholder="Search" id="search">
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-2 border-dark border text-center">
+            <h5 class="mt-lg-5">category</h5>
+            <h5>category</h5>
+            <h5>category</h5>
+            <h5>category</h5>
+            <h5>category</h5>
+            <h5>category</h5>
+            <h5>category</h5>
+        </div>
+        <div class="col-md-9 ml-lg-5">
+            <div class="row mt-lg-5">
+                @each(vendorProduct in vendorProducts)
+                <div class="col-md-3 border border-dark p-3 ml-lg-3 mr-lg-3">
+                    <div class="p-3 border border-dark text-center">
+                        <img src="{{vendorProduct.product_pic}}"
+                            alt="" height="200px" width="200px">
+                    </div>
+                    <p>{{vendorProduct.product_name}}</p>
+                    <p>{{vendorProduct.company_name}}</p>
+                    <p>{{vendorProduct.prize}}</p>
+                    <button class="btn border">Add</button>
+                </div>
+                @endeach
+            </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-md-6 text-center p-3" style="background: #ffd500;color: black ">
+            <h3>Open self-scanner</h3>
+        </div>
+        <div class="col-md-6 text-center p-3" style="background: #000000;color: white ">
+            <h3>Proceed &nbsp;-></h3>
+        </div>
+    </div>
+</body>
+
+</html>

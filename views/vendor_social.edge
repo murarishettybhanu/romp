@@ -31,19 +31,20 @@
 
 <body>
     <nav class="navbar navbar-light" style="background: #ffcc00">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/vendor/homePage">
             <div class="form-inline">
                 <img src="https://romp.co.in/assets/logo.png" width="70" height="70"
                     class="d-inline-block align-top ml-3 mt-3" alt="">
                 <p class="ml-3 mt-4" id="navbrand">Romp | Vendor</p>
             </div>
         </a>
+        <h5 class="p-4">{{vendor.vendorName}}</h5>
     </nav>
     <div class="row m-md-5 m-3">
         <div class="col-md-2" style="color: white;">
             <p class="mt-md-5 ml-3"><b>Products</b></p>
-            <p class="ml-4">Products list</p>
-            <p class="ml-4">Add product</p>
+            <a href="/vendor/products/list" class="ml-4">Products list</a><br>
+            <a href="/product/add" class="ml-4">Add product</a>
             <br><br>
             <p class="ml-3"><b>Orders</b></p>
             <p class="ml-4">Pending orders</p>
@@ -57,7 +58,8 @@
                     <div class="border rounded">
                         <textarea name="content" id="" cols="30" rows="5" class="form-control border-0"></textarea><br>
                         Image <br>
-                        <input type="file" name="image"> </div>
+                        <input type="file" name="image"> 
+                    </div>
                         <button>Post</button>
             </div>
             </form>

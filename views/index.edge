@@ -305,7 +305,7 @@
             <div class="mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
                 <div class="form-inline">
                     <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"></div>
-                    <p class="ml-2 mt-3">Vendor name <br>Vendor location</p>
+                    <p class="ml-2 mt-3">Featured Vendor name <br> Vendor location</p>
                 </div>
             </div>
             <div class="mt-lg-3 p-lg-5 mb-lg-5 text-center">
@@ -651,20 +651,26 @@
                 </div>
             </div>
         </div>
+        @each(vendor in vendors)
         <div class="mt-lg-5">
             <div class="mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
                 <div class="form-inline">
-                    <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"></div>
-                    <p class="ml-2 mt-3">Vendor name <br>Vendor location</p>
+                    <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"> 
+                    <img src="{{vendor.vendorDisplayPic}}" height="65px" width="65px" class="rounded">
+                    </div>
+                    <p class="ml-2 mt-3">{{vendor.vendorName}}<br>{{vendor.vendorLocation}}</p>
                 </div>
             </div>
             <div class="mt-lg-3 p-lg-5 mb-lg-5 text-center">
                 <img src="https://image.shutterstock.com/image-photo/luxury-accessories-cloth-store-interior-260nw-1028415271.jpg"
                     alt="" width="100%"><br><br>
-                <p class="float-left">Description....</p>
-                <button class="btn btn-primary float-right">Buy</button>
+                <p class="float-left">{{vendor.vendorDescription}}</p>
+                <a href="/vendor/{{vendor._id}}"> <button class="btn btn-primary float-right">Buy</button> </a>
             </div>
-        </div><br><br>
+        </div>
+        <br><br>
+        @endeach
+        <br><br>
         <div class="mt-lg-5">
             <div class="mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
                 <div class="form-inline">
