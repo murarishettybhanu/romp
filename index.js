@@ -19,12 +19,15 @@ const vendorLoginController = require("./controllers/vendorLogin");
 const vendorValidatController = require("./controllers/vendorValidator");
 const vendorHomePageController = require("./controllers/vendorHomePage");
 const addProductController = require("./controllers/addProduct");
-const productStoreController = require("./controllers/productStore")
 const vendorProductListController = require("./controllers/vendorProductList");
 const createPostController = require("./controllers/createPost");
 const storePostController = require("./controllers/storePost");
+<<<<<<< HEAD
 const vendorUserProfilecontroller = require("./controllers/vendorProfile");
 const vendorUserBuyControll = require("./controllers/vendorUserBuy");
+=======
+const socialController = require("./controllers/social")
+>>>>>>> 482d20f43a5b0efdc938f025a29fcced83081b18
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -69,12 +72,16 @@ app.get('/logout',logoutController)
 
 app.get('/logout',logoutController);
 app.get('/product/add',addProductController);
-app.post('/product/store',productStoreController);
 app.get('/product/add',addProductController);
 app.get('/createPost',createPostController);
 app.post('/post/store',storePostController);
+<<<<<<< HEAD
 app.get('/vendor/:id',vendorUserProfilecontroller);
 app.get('/buy/:id',vendorUserBuyControll)
+=======
+app.get('/social',socialController)
+
+>>>>>>> 482d20f43a5b0efdc938f025a29fcced83081b18
 
 app.listen(4000, () => {
     console.log("App listening on port 4000");
