@@ -1,10 +1,13 @@
 const express = require('express');
 const expressEdge = require('express-edge');
+const edge = require('edge.js');
 const mongoose = require('mongoose')
 const fileUpload = require("express-fileupload");
 const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
 
+
+const homePageController = require("./controllers/homePage")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true });
@@ -33,6 +36,7 @@ app.use("*", (req, res, next) => {
   next();
 });
 
+app.get('/',homePageController);
 
 app.listen(4000, () => {
     console.log("App listening on port 4000");
