@@ -7,7 +7,7 @@ module.exports = (req, res) => {
 
       req.flash('registrationErrors', registrationErrors)
       req.flash('data', req.body)
-      return res.redirect('/auth/register')
+      return res.redirect('/user/register')
     }
     res.redirect('/')
   })
