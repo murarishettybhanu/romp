@@ -8,9 +8,16 @@ module.exports = (req, res) => {
     Post.create({
       ...req.body,
       image: `/posts/${image.name}`,
-      author_id: req.session.userId
+      author_id: req.session.userId,
+      author: req.session.userId
     }, (error, post) => {
-      res.redirect("/");
+      if(error){
+        res.redirect("/vendor/homepage");
+        console.log(error)
+      }
+      else{
+        res.redirect("/createPost");
+      }
     });
   })
 }

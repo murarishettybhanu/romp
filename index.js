@@ -19,11 +19,11 @@ const vendorLoginController = require("./controllers/vendorLogin");
 const vendorValidatController = require("./controllers/vendorValidator");
 const vendorHomePageController = require("./controllers/vendorHomePage");
 const addProductController = require("./controllers/addProduct");
-const productStoreController = require("./controllers/productStore")
 const vendorProductListController = require("./controllers/vendorProductList");
 const productStoreController = require("./controllers/productStore");
 const createPostController = require("./controllers/createPost");
-const storePostController = require("./controllers/storePost")
+const storePostController = require("./controllers/storePost");
+const socialController = require("./controllers/social")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -68,11 +68,11 @@ app.get('/logout',logoutController)
 
 app.get('/logout',logoutController);
 app.get('/product/add',addProductController);
-app.post('/product/store',productStoreController);
 app.get('/product/add',addProductController);
 app.post('/product/store',productStoreController);
 app.get('/createPost',createPostController);
-app.post('/post/store',storePostController)
+app.post('/post/store',storePostController);
+app.get('/social',socialController)
 
 
 app.listen(4000, () => {
