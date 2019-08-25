@@ -11,20 +11,12 @@ module.exports = (req, res) => {
       author_id: req.session.userId,
       author: req.session.userId
     }, (error, post) => {
-<<<<<<< HEAD
-      if(post){
-        res.redirect("createPost");
-      }
-      else{
-        res.redirect("createPost");
-=======
       if(error){
         res.redirect("/vendor/homepage");
         console.log(error)
       }
       else{
         res.redirect("/createPost");
->>>>>>> 482d20f43a5b0efdc938f025a29fcced83081b18
       }
     });
   })

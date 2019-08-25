@@ -33,7 +33,7 @@
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light mb-5">
-            <a class="navbar-brand" href="#" style="color:white">Romp</a>
+            <a class="navbar-brand" href="/" style="color:white">Romp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,21 +41,32 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Social</a>
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/social">Social</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Search</a>
                     </li>
+                    @if(auth)
                     <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Buy</a>
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">{{user.username}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Account</a>
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/logout">Logout</a>
                     </li>
+                    @endif
+                    @if(!auth)
+                    <li class="nav-item">
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/user/loginpage">User
+                            login/Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/vendor/login">Vendor login</a>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </nav>
-    @each(post in posts)
+        @each(post in posts)
         <div class="mt-lg-5">
             <div class="mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
                 <div class="form-inline">
@@ -64,9 +75,8 @@
                 </div>
             </div>
             <div class="mt-lg-3 p-lg-5 mb-lg-5 text-center">
-                <img src="{{post.image}}" width="100%"
-                    alt="" width="100%"><br><br>
-                    <p>{{post.content}}</p>
+                <img src="{{post.image}}" width="100%" alt="" width="100%"><br><br>
+                <p>{{post.content}}</p>
                 <div class="text-center w-50 mx-auto">
                     <h4 class="float-left"><b>Save</b></h4>
                     <h4 class="float-right"><b>Share</b></h4>
