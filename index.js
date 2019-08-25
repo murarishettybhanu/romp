@@ -7,7 +7,12 @@ const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
 
 
-const homePageController = require("./controllers/homePage")
+const homePageController = require("./controllers/homePage");
+const userRegisterController = require("./controllers/userRegister");
+const storeUserController = require("./controllers/storeUser");
+const loginPageController = require("./controllers/loginPage");
+const loginUserController = require("./controllers/loginUser");
+const logoutController = require("./controllers/logout")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true });
@@ -37,7 +42,11 @@ app.use("*", (req, res, next) => {
 });
 
 app.get('/',homePageController);
-//hey you
+app.get('/user/register',userRegisterController);
+app.post('/user/store',storeUserController);
+app.get('/user/loginpage',loginPageController);
+app.post('/user/login',loginUserController);
+app.get('/logout',logoutController)
 
 app.listen(4000, () => {
     console.log("App listening on port 4000");
