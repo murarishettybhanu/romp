@@ -56,7 +56,7 @@ const storePost = require("./middleware/storePost");
 const auth = require("./middleware/auth");
 const redirectIfAuthenticated = require("./middleware/redirectIfAuthenticated");
 
-app.get("/user", homePageController);
+app.get("/", homePageController);
 app.get("/vendor", vendorHomePageController);
 app.get("/post/:id", getPostController);
 app.get("/auth/logout", auth, logoutController);
