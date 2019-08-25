@@ -14,13 +14,9 @@ const userRegisterController = require("./controllers/userRegister");
 const storeUserController = require("./controllers/storeUser");
 const loginPageController = require("./controllers/loginPage");
 const loginUserController = require("./controllers/loginUser");
-<<<<<<< HEAD
 const logoutController = require("./controllers/logout")
-=======
-const logoutController = require("./controllers/logout");
 const vendorLoginController = require("./controllers/vendorLogin");
 const vendorValidatController = require("./controllers/vendorValidator");
->>>>>>> 247b6b24a04f41e28b70ccf54ae39168e1817c37
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -59,12 +55,9 @@ app.get('/user/register',userRegisterController);
 app.post('/user/store',storeUserController);
 app.get('/user/loginpage',loginPageController);
 app.post('/user/login',loginUserController);
-<<<<<<< HEAD
 app.get('/logout',logoutController)
-=======
 app.get('/logout',logoutController);
 
->>>>>>> 247b6b24a04f41e28b70ccf54ae39168e1817c37
 
 app.listen(4000, () => {
     console.log("App listening on port 4000");
