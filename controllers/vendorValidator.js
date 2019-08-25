@@ -8,7 +8,7 @@ module.exports = (req,res)=>{
             bcrypt.compare(password,vendor.password,(error,same)=>{
                 if(same){
                     req.session.userId = vendor._id;
-                    res.redirect('/');
+                    res.redirect('/vendor/homePage');
                 }
                 else{
                     console.log("Entered password is incorrect");

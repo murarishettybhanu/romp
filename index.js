@@ -17,6 +17,7 @@ const loginUserController = require("./controllers/loginUser");
 const logoutController = require("./controllers/logout")
 const vendorLoginController = require("./controllers/vendorLogin");
 const vendorValidatController = require("./controllers/vendorValidator");
+const vendorHomePageController = require("./controllers/vendorHomePage");
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -50,13 +51,14 @@ app.get('/vendorRegister', vendorRegisterController);
 app.post('/vendor/store', vendoStoreController);
 app.get('/vendor/login',vendorLoginController);
 app.post('/vendor/login/validate',vendorValidatController);
+app.get('/vendor/homePage',vendorHomePageController);
 
 app.get('/user/register',userRegisterController);
 app.post('/user/store',storeUserController);
 app.get('/user/loginpage',loginPageController);
 app.post('/user/login',loginUserController);
 app.get('/logout',logoutController)
-app.get('/logout',logoutController);
+
 
 
 app.listen(4000, () => {
