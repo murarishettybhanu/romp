@@ -31,50 +31,51 @@
 
 <body>
     <nav class="navbar navbar-light" style="background: #ffcc00">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/vendor/homePage">
             <div class="form-inline">
                 <img src="https://romp.co.in/assets/logo.png" width="70" height="70"
                     class="d-inline-block align-top ml-3 mt-3" alt="">
                 <p class="ml-3 mt-4" id="navbrand">Romp | Vendor</p>
             </div>
         </a>
+        <h5 class="p-4">{{vendor.vendorName}}</h5>
     </nav>
     <div class="row m-md-5 m-3">
-            <div class="col-md-2" style="color: white;">
-                <p class="mt-md-5 ml-3"><b>Products</b></p>
-                <p class="ml-4">Products list</p>
-                <p class="ml-4">Add product</p>
-                <br><br>
-                <p class="ml-3"><b>Orders</b></p>
-                <p class="ml-4">Pending orders</p>
-                <p class="ml-4">All orders</p><br><br>
-                <p class="mt-md-3 ml-3"><b>Social</b></p>
-                <p class="ml-3"><b>Messages</b></p>
-            </div>
-            <div class="col-md-10">
-                <div class="container p-md-5 p-3">
-                    <form action="/product/store" method="POST" encType="multipart/form-data">
-                        Product name <br>
-                        <input type="text" name="product_name" class="form-control"><br>
-                        Company name<br>
-                        <input type="text" name="company_name" class="form-control"><br>
-                        Product pictures<br>
-                        <input type="file" name="product_pic" class="form-control"><br>
-                        Barcode(If available)<br>
-                        <input type="text" name="barcode" class="form-control"><br>
-                        Product Subtype<br>
-                        <input type="text" name="subtype" class="form-control"><br>
-                        Best before<br>
-                        <input type="date" name="best_before" class="form-control"><br>
-                        Product Weight/size<br>
-                        <input type="text" name="weight" class="form-control"><br>
-                        Prize<br>
-                        <input type="text" name="prize" class="form-control"><br><br>
-                        <button>Add product</button>
-                    </form>
-                </div>
+        <div class="col-md-2" style="color: white;">
+            <p class="mt-md-5 ml-3"><b>Products</b></p>
+            <a href="/vendor/products/list" class="ml-4">Products list</a><br>
+            <a href="/product/add" class="ml-4">Add product</a>
+            <br><br>
+            <p class="ml-3"><b>Orders</b></p>
+            <p class="ml-4">Pending orders</p>
+            <p class="ml-4">All orders</p><br><br>
+            <p class="mt-md-3 ml-3"><b>Social</b></p>
+            <p class="ml-3"><b>Messages</b></p>
+        </div>
+        <div class="col-md-10">
+            <div class="container p-md-5 p-3">
+                <form action="/product/store" method="POST" encType="multipart/form-data">
+                    Product name <br>
+                    <input type="text" name="product_name" class="form-control"><br>
+                    Company name<br>
+                    <input type="text" name="company_name" class="form-control"><br>
+                    Product pictures<br>
+                    <input type="file" name="product_pic" class="form-control"><br>
+                    Barcode(If available)<br>
+                    <input type="text" name="barcode" class="form-control"><br>
+                    Product Subtype<br>
+                    <input type="text" name="subtype" class="form-control"><br>
+                    Best before<br>
+                    <input type="date" name="best_before" class="form-control"><br>
+                    Product Weight/size<br>
+                    <input type="text" name="weight" class="form-control"><br>
+                    Prize<br>
+                    <input type="text" name="prize" class="form-control"><br><br>
+                    <button>Add product</button>
+                </form>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

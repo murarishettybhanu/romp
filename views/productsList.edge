@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Romp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        background: black;
+        color: black;
+    }
+
+    .container {
+        background: white;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-light" style="background: #ffcc00">
+        <a class="navbar-brand" href="/vendor/homePage">
+            <div class="form-inline">
+                <img src="https://romp.co.in/assets/logo.png" width="70" height="70"
+                    class="d-inline-block align-top ml-3 mt-3" alt="">
+                <p class="ml-3 mt-4" id="navbrand">Romp | Vendor</p>
+            </div>
+        </a>
+        <h5 class="p-4">{{vendor.vendorName}}</h5>
+    </nav>
+    <div class="row m-md-5 m-3">
+        <div class="col-md-2" style="color: white;">
+            <p class="mt-md-5 ml-3"><b>Products</b></p>
+            <a href="/vendor/products/list" class="ml-4">Products list</a><br>
+            <a href="/product/add" class="ml-4">Add product</a>
+            <br><br>
+            <p class="ml-3"><b>Orders</b></p>
+            <p class="ml-4">Pending orders</p>
+            <p class="ml-4">All orders</p><br><br>
+            <p class="mt-md-3 ml-3"><b>Social</b></p>
+            <p class="ml-3"><b>Messages</b></p>
+        </div>
+        <div class="col-md-10">
+            <div class="container p-md-5 p-3">
+                <input type="text" class="form-control" placeholder="Search">
+                <br><br>
+                <div>
+                    <div class="row mt-3 mb-3">
+                        <div class="col-md-3">
+                            <img src="http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Lays-Potato-Chips-PNG-Transparent-Image-500x676.png"
+                                alt="" height="150px" height="150px">
+                        </div>
+                        <div class="col-md-3">
+                            <p>Lays</p>
+                            <p>PepsiCo India</p>
+                            <p>Rs.10</p>
+                            <p>Sancks</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <p><b>Available stock <br> 5</b></p>
+                            <p class="btn border">Edit stock</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <p class="btn border">Details</p><br>
+                            <p class="btn border">Edit</p><br>
+                            <p class="btn border btn-danger">Delete</p>
+                        </div>
+                    </div>
+                </div>
+                @each(product in products)
+                <div>
+                    <div class="row mt-3 mb-3 border rounded">
+                        <div class="col-md-3">
+                            <img src="{{product.product_pic}}" alt="" height="150px" height="150px">
+                        </div>
+                        <div class="col-md-3">
+                            <p>{{product.product_name}}</p>
+                            <p>{{product.company_name}} </p>
+                            <p>Rs.{{product.prize}}</p>
+                            <p>{{product.subtype}}</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <p><b>Available stock <br> 5</b></p>
+                            <p class="btn border">Edit stock</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <p class="btn border">Details</p><br>
+                            <p class="btn border">Edit</p><br>
+                            <p class="btn border btn-danger">Delete</p>
+                        </div>
+                    </div>
+                </div>
+                @endeach
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

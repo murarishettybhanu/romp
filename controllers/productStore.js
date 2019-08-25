@@ -15,14 +15,15 @@ module.exports = (req, res) => {
 
   Product.create({
     ...req.body,
-    product_pic: pp
+    product_pic: pp,
+    author_id: req.session.userId
   }, (error, post) => {
     if (error) {
-      res.redirect("/");
+      res.redirect("/product/add");
       console.log(error)
     }
     else {
-        res.redirect("/")
+        res.redirect("/vendor/products/list")
     }
   });
 

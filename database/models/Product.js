@@ -8,7 +8,8 @@ const ProductSchema = new mongoose.Schema({
     subtype: String,
     best_before: String,
     weight: String,
-    prize: String
+    prize: String,
+    author_id:String
 })
 
 const Product = mongoose.model('Product', ProductSchema)
