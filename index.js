@@ -21,6 +21,9 @@ const vendorHomePageController = require("./controllers/vendorHomePage");
 const addProductController = require("./controllers/addProduct");
 const productStoreController = require("./controllers/productStore")
 const vendorProductListController = require("./controllers/vendorProductList");
+const productStoreController = require("./controllers/productStore");
+const createPostController = require("./controllers/createPost");
+const storePostController = require("./controllers/storePost")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -66,6 +69,10 @@ app.get('/logout',logoutController)
 app.get('/logout',logoutController);
 app.get('/product/add',addProductController);
 app.post('/product/store',productStoreController);
+app.get('/product/add',addProductController);
+app.post('/product/store',productStoreController);
+app.get('/createPost',createPostController);
+app.post('/post/store',storePostController)
 
 
 app.listen(4000, () => {

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Romp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        background: black;
+        color: black;
+    }
+
+    .container {
+        background: white;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-light" style="background: #ffcc00">
+        <a class="navbar-brand" href="#">
+            <div class="form-inline">
+                <img src="https://romp.co.in/assets/logo.png" width="70" height="70"
+                    class="d-inline-block align-top ml-3 mt-3" alt="">
+                <p class="ml-3 mt-4" id="navbrand">Romp | Vendor</p>
+            </div>
+        </a>
+    </nav>
+    <div class="row m-md-5 m-3">
+        <div class="col-md-2" style="color: white;">
+            <p class="mt-md-5 ml-3"><b>Products</b></p>
+            <p class="ml-4">Products list</p>
+            <p class="ml-4">Add product</p>
+            <br><br>
+            <p class="ml-3"><b>Orders</b></p>
+            <p class="ml-4">Pending orders</p>
+            <p class="ml-4">All orders</p><br><br>
+            <p class="mt-md-3 ml-3"><b>Social</b></p>
+            <p class="ml-3"><b>Messages</b></p>
+        </div>
+        <div class="col-md-10">
+            <div class="container p-md-5 p-3">
+                <form action="/post/store" method="POST" encType="multipart/form-data">
+                    <div class="border rounded">
+                        <textarea name="content" id="" cols="30" rows="5" class="form-control border-0"></textarea><br>
+                        Image <br>
+                        <input type="file" name="image"> </div>
+                        <button>Post</button>
+            </div>
+            </form>
+            <br><br>
+            <h5><b>Previous Posts</b></h5><br>
+            <div class="form-inline">
+                <div style="width:60px;height:60px;border-radius: 50%" class="border border-dark"></div>
+                <p class="ml-2 mt-3">Vendor name <br> Vendor Location</p>
+            </div><br><br>
+            <img src="https://i.imgur.com/jlvxrcF.jpg" alt="" height="350px" width="100%">
+            <br><br>
+            <div class="form-inline">
+                <div style="width:60px;height:60px;border-radius: 50%" class="border border-dark"></div>
+                <p class="ml-2 mt-3">Vendor name <br> Vendor Location</p>
+            </div><br><br>
+            <img src="https://i.imgur.com/jlvxrcF.jpg" alt="" height="350px" width="100%">
+            <br><br>
+            <div class="form-inline">
+                <div style="width:60px;height:60px;border-radius: 50%" class="border border-dark"></div>
+                <p class="ml-2 mt-3">Vendor name <br> Vendor Location</p>
+            </div><br><br>
+            <img src="https://i.imgur.com/jlvxrcF.jpg" alt="" height="350px" width="100%">
+            <br><br>
+            <div class="form-inline">
+                <div style="width:60px;height:60px;border-radius: 50%" class="border border-dark"></div>
+                <p class="ml-2 mt-3">Vendor name <br> Vendor Location</p>
+            </div><br><br>
+            <img src="https://i.imgur.com/jlvxrcF.jpg" alt="" height="350px" width="100%">
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
