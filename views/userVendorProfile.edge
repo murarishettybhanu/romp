@@ -37,6 +37,16 @@
         border-color: #46b8da;
     }
 
+    h2 {
+        color: #000;
+        font-size: 26px;
+        font-weight: 300;
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+        margin: 30px 0 60px;
+    }
+
     #mybutton {
         position: fixed;
         bottom: -4px;
@@ -45,9 +55,14 @@
 </style>
 
 <body>
-    <div class="container">
+    <div class="">
         <nav class="navbar navbar-expand-lg navbar-light mb-5">
-            <a class="navbar-brand" href="/" style="color:white">Romp</a>
+            <a href="/">
+                <div class="form-inline">
+                    <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
+                    <p class="ml-3 mt-4"></p>
+                </div>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -108,6 +123,7 @@
             </a>
         </div>
         <br><br>
+        <h2>Vendor Profile</h2>
         <div class="form-inline">
             <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"></div>
             <p class="ml-2 mt-3">{{vendor.vendorName}} <br>{{vendor.vendorLocation}}</p>
@@ -129,20 +145,17 @@
                 </div>
             </div>
         </div>
+        <h2>Vendor Posts</h2>
         <div class="mt-lg-5">
             <div class="mt-lg-3 p-lg-5 mb-lg-5 text-center">
                 <img src="https://image.shutterstock.com/image-photo/luxury-accessories-cloth-store-interior-260nw-1028415271.jpg"
                     alt="" width="100%"><br><br>
                 <p class="float-left">Description....</p>
-                <a href="/buy/{{vendor._id}}"> <button class="btn btn-primary float-right">Buy</button> </a>
+                <a class="text-center" href="/buy/{{vendor._id}}"> <button
+                        class="btn btn-primary float-right">Buy</button> </a>
             </div>
         </div>
         <br>
-        <div class="text-center">
-            <button style="background:#ffd500">
-                <h1>Buy</h1>
-            </button>
-        </div>
         <div id="mybutton">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary feedback" data-toggle="modal" data-target="#sideModalTR">

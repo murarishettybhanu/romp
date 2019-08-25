@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Romp Social</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -218,9 +218,12 @@
 </style>
 
 <body>
-    <div class="container">
+    <div class="">
         <nav class="navbar navbar-expand-lg navbar-light mb-5">
-            <a class="navbar-brand" href="/" style="color:white">Romp</a>
+            <div class="form-inline">
+                <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
+                <p class="ml-3 mt-4"></p>
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -243,7 +246,8 @@
                     @endif
                     @if(!auth)
                     <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/user/loginpage">User login/Register</a>
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/user/loginpage">User
+                            login/Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/vendor/login">Vendor login</a>
@@ -279,6 +283,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        <h2>Catogries</h2>
         <div class="row">
             <div class="col-md-2 mt-5 ml-lg-4 mr-lg-3 w-100 h-100 pt-5 pb-5 border border-dark text-center">
                 <img src="https://static.thenounproject.com/png/861643-200.png" alt="" width="50px" height="50px">
@@ -300,7 +305,8 @@
                 <img src="https://static.thenounproject.com/png/861643-200.png" alt="" width="50px" height="50px">
                 <h4>Category 1</h4>
             </div>
-        </div>
+        </div><br><br>
+        <h2>Featured Posts</h2>
         <div class="mt-lg-5">
             <div class="mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
                 <div class="form-inline">
@@ -315,6 +321,8 @@
                 <button class="btn btn-primary float-right">Buy</button>
             </div>
         </div>
+        <br><br>
+        <h2>Featured Products</h2>
         <div class="mnt-lg-5">
             <div class="container">
                 <div class="row">
@@ -651,12 +659,14 @@
                 </div>
             </div>
         </div>
+        <br><br>
+        <h2>Popular Nearyou</h2>
         @each(vendor in vendors)
         <div class="mt-lg-5">
             <div class="mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
                 <div class="form-inline">
-                    <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"> 
-                    <img src="{{vendor.vendorDisplayPic}}" height="65px" width="65px" class="rounded">
+                    <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%">
+                        <img src="{{vendor.vendorDisplayPic}}" height="65px" width="65px" class="rounded">
                     </div>
                     <p class="ml-2 mt-3">{{vendor.vendorName}}<br>{{vendor.vendorLocation}}</p>
                 </div>
@@ -665,7 +675,7 @@
                 <img src="https://image.shutterstock.com/image-photo/luxury-accessories-cloth-store-interior-260nw-1028415271.jpg"
                     alt="" width="100%"><br><br>
                 <p class="float-left">{{vendor.vendorDescription}}</p>
-                <a href="/vendor/{{vendor._id}}"> <button class="btn btn-primary float-right">Buy</button> </a>
+                <a href="/vendor/{{vendor._id}}"> <button class="btn btn-primary float-right">Explore</button> </a>
             </div>
         </div>
         <br><br>
@@ -682,7 +692,7 @@
                 <img src="https://image.shutterstock.com/image-photo/luxury-accessories-cloth-store-interior-260nw-1028415271.jpg"
                     alt="" width="100%"><br><br>
                 <p class="float-left">Description....</p>
-                <button class="btn btn-primary float-right">Buy</button>
+                <button class="btn btn-primary float-right">Explore</button>
             </div>
         </div>
     </div>

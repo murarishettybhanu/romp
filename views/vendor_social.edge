@@ -33,12 +33,13 @@
     <nav class="navbar navbar-light" style="background: #ffcc00">
         <a class="navbar-brand" href="/vendor/homePage">
             <div class="form-inline">
-                <img src="https://romp.co.in/assets/logo.png" width="70" height="70"
+                <img src="/logo.png" width="70" height="70"
                     class="d-inline-block align-top ml-3 mt-3" alt="">
                 <p class="ml-3 mt-4" id="navbrand">Romp | Vendor</p>
             </div>
         </a>
         <h5 class="p-4">{{vendor.vendorName}}</h5>
+
     </nav>
     <div class="row m-md-5 m-3">
         <div class="col-md-2" style="color: white;">
@@ -49,25 +50,24 @@
             <p class="ml-3"><b>Orders</b></p>
             <p class="ml-4">Pending orders</p>
             <p class="ml-4">All orders</p><br><br>
-            <p class="mt-md-3 ml-3"><b>Social</b></p>
+            <a href="/createPost" class="mt-md-3 ml-3"><b>Social</b></a>
             <p class="ml-3"><b>Messages</b></p>
+            <a href="/logout" class="ml-3">Logout</a>
         </div>
         <div class="col-md-10">
             <div class="container p-md-5 p-3">
                 <form action="/post/store" method="POST" encType="multipart/form-data">
                     <div class="border rounded">
-                        <textarea name="content" id="" cols="30" rows="5" class="form-control border-0"></textarea><br>
+                        <textarea name="content" id="" cols="30" rows="5" required
+                            class="form-control border-0"></textarea><br>
                         Image <br>
-<<<<<<< HEAD
-                        <input type="file" name="image"> 
+                        <input type="file" name="image" required>
                     </div>
-                        <button>Post</button>
-=======
-                        <input type="file" name="image" class="form-control"> </div>
                     <div class="text-center">
                         <button class="btn btn-primary">Post</button>
                     </div>
                 </form>
+
                 <br><br>
                 <h5><b>Previous Posts</b></h5><br>
                 @each(post in posts)
@@ -77,11 +77,12 @@
                 </div><br><br>
                 <img src="{{post.image}}" alt="" height="350px" width="100%"><br><br>
                 <p>{{post.content}}</p>
+                <button>Edit</button> <button>Delete</button>
                 <br><br>
                 @endeach
->>>>>>> 482d20f43a5b0efdc938f025a29fcced83081b18
             </div>
         </div>
+    </div>
     </div>
 </body>
 

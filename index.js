@@ -25,6 +25,7 @@ const storePostController = require("./controllers/storePost");
 const vendorUserProfilecontroller = require("./controllers/vendorProfile");
 const vendorUserBuyControll = require("./controllers/vendorUserBuy");
 const socialController = require("./controllers/social")
+const storeProduct = require("./controllers/productStore")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -65,16 +66,17 @@ app.get('/user/register',userRegisterController);
 app.post('/user/store',storeUserController);
 app.get('/user/loginpage',loginPageController);
 app.post('/user/login',loginUserController);
-app.get('/logout',logoutController)
+app.get('/logout',logoutController);
+app.post('/product/store',storeProduct)
 
 app.get('/logout',logoutController);
-app.get('/product/add',addProductController);
 app.get('/product/add',addProductController);
 app.get('/createPost',createPostController);
 app.post('/post/store',storePostController);
 app.get('/vendor/:id',vendorUserProfilecontroller);
 app.get('/buy/:id',vendorUserBuyControll)
 app.get('/social',socialController)
+
 
 app.listen(4000, () => {
     console.log("App listening on port 4000");
