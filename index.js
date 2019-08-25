@@ -8,19 +8,18 @@ const connectMongo = require("connect-mongo");
 
 
 const homePageController = require("./controllers/homePage");
-<<<<<<< HEAD
 const vendorRegisterController = require("./controllers/vendorRegister");
 const vendoStoreController = require("./controllers/vendorStore");
-=======
 const userRegisterController = require("./controllers/userRegister");
 const storeUserController = require("./controllers/storeUser");
 const loginPageController = require("./controllers/loginPage");
 const loginUserController = require("./controllers/loginUser");
-const logoutController = require("./controllers/logout")
->>>>>>> 74af5a39262d1bd3438dfa1916a5553f99fb7607
+const logoutController = require("./controllers/logout");
+const vendorLoginController = require("./controllers/vendorLogin");
+const vendorValidatController = require("./controllers/vendorValidator");
 
 const app = new express();
-mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
 
 const mongoStore = connectMongo(expressSession);
 
@@ -47,17 +46,17 @@ app.use("*", (req, res, next) => {
 });
 
 app.get('/',homePageController);
-<<<<<<< HEAD
 app.get('/vendorRegister', vendorRegisterController);
 app.post('/vendor/store', vendoStoreController);
+app.get('/vendor/login',vendorLoginController);
+app.post('/vendor/login/validate',vendorValidatController);
 
-=======
 app.get('/user/register',userRegisterController);
 app.post('/user/store',storeUserController);
 app.get('/user/loginpage',loginPageController);
 app.post('/user/login',loginUserController);
-app.get('/logout',logoutController)
->>>>>>> 74af5a39262d1bd3438dfa1916a5553f99fb7607
+app.get('/logout',logoutController);
+
 
 app.listen(4000, () => {
     console.log("App listening on port 4000");
