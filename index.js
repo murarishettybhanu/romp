@@ -14,10 +14,15 @@ const userRegisterController = require("./controllers/userRegister");
 const storeUserController = require("./controllers/storeUser");
 const loginPageController = require("./controllers/loginPage");
 const loginUserController = require("./controllers/loginUser");
-const logoutController = require("./controllers/logout")
+const logoutController = require("./controllers/logout");
 const vendorLoginController = require("./controllers/vendorLogin");
 const vendorValidatController = require("./controllers/vendorValidator");
+<<<<<<< HEAD
 const vendorHomePageController = require("./controllers/vendorHomePage");
+=======
+const addProductController = require("./controllers/addProduct");
+const productStoreController = require("./controllers/productStore")
+>>>>>>> b884e046eacfe7aa3c77963e4b7a0e938383c7d5
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -57,8 +62,14 @@ app.get('/user/register',userRegisterController);
 app.post('/user/store',storeUserController);
 app.get('/user/loginpage',loginPageController);
 app.post('/user/login',loginUserController);
+<<<<<<< HEAD
 app.get('/logout',logoutController)
 
+=======
+app.get('/logout',logoutController);
+app.get('/product/add',addProductController);
+app.post('/product/store',productStoreController);
+>>>>>>> b884e046eacfe7aa3c77963e4b7a0e938383c7d5
 
 
 app.listen(4000, () => {
