@@ -17,6 +17,9 @@ const vendorSchema = new mongoose.Schema({
   vendorDisplayPic :{
     type: String
   },
+  vendorDisplay:{
+    type: String
+  },
   vendorLocation : {
       type: String
   },

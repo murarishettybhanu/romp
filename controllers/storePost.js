@@ -10,7 +10,7 @@ module.exports = (req, res) => {
       image: `/posts/${image.name}`,
       author_id: req.session.userId,
       author: req.session.userId
-    }, (error, post) => {
+    }, (error, post) => { 
       if(error){
         res.redirect("/vendor/homepage");
         console.log(error)

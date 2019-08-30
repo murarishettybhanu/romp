@@ -26,6 +26,8 @@ const vendorUserProfilecontroller = require("./controllers/vendorProfile");
 const vendorUserBuyControll = require("./controllers/vendorUserBuy");
 const socialController = require("./controllers/social")
 const storeProduct = require("./controllers/productStore")
+const deletePostController = require("./controllers/deletePost")
+const deleteProductController = require("./controllers/deleteProduct")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -76,6 +78,8 @@ app.post('/post/store',storePostController);
 app.get('/vendor/:id',vendorUserProfilecontroller);
 app.get('/buy/:id',vendorUserBuyControll)
 app.get('/social',socialController)
+app.get('/deletePost/:id',deletePostController)
+app.get('/deleteProduct/:id',deleteProductController)
 
 
 app.listen(4000, () => {
