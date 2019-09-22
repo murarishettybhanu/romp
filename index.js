@@ -5,8 +5,9 @@ const mongoose = require('mongoose')
 const fileUpload = require("express-fileupload");
 const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
-var cors = require('cors');
 var bodyParser = require('body-parser');
+const flash = require('express-flash');
+
 
 
 
@@ -31,7 +32,9 @@ const socialController = require("./controllers/social")
 const storeProduct = require("./controllers/productStore")
 const deletePostController = require("./controllers/deletePost")
 const deleteProductController = require("./controllers/deleteProduct")
-const checkoutController = require("./controllers/checkout")
+const checkoutController = require("./controllers/checkout");
+const ordersController = require("./controllers/orders")
+const myordersController = require("./controllers/myorders")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -77,7 +80,7 @@ app.get('/user/loginpage',loginPageController);
 app.post('/user/login',loginUserController);
 app.get('/logout',logoutController);
 app.post('/product/store',storeProduct);
-app.post('/checkout',checkoutController)
+app.post('/checkout/:id',checkoutController)
 app.get('/logout',logoutController);
 app.get('/product/add',addProductController);
 app.get('/createPost',createPostController);
@@ -86,7 +89,9 @@ app.get('/vendor/:id',vendorUserProfilecontroller);
 app.get('/buy/:id',vendorUserBuyControll)
 app.get('/social',socialController)
 app.get('/deletePost/:id',deletePostController)
-app.get('/deleteProduct/:id',deleteProductController)
+app.get('/deleteProduct/:id',deleteProductController);
+app.get('/orders',ordersController);
+app.get('/myorders',myordersController)
 
 
 app.listen(4000, () => {

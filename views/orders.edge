@@ -33,13 +33,12 @@
     <nav class="navbar navbar-light" style="background: #ffcc00">
         <a class="navbar-brand" href="/vendor/homePage">
             <div class="form-inline">
-                <img src="/logo.png" width="70" height="70"
-                    class="d-inline-block align-top ml-3 mt-3" alt="">
+                <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
                 <p class="ml-3 mt-4" id="navbrand">Romp | Vendor</p>
             </div>
         </a>
         <h5 class="p-4">{{vendor.vendorName}}</h5>
-        
+
     </nav>
     <div class="row m-md-5 m-3">
         <div class="col-md-2" style="color: white;">
@@ -49,23 +48,59 @@
             <br><br>
             <p class="ml-3"><b>Orders</b></p>
             <p class="ml-4">Pending orders</p>
-            <a href="/orders"><p class="ml-4">All orders</p></a><br><br>
+            <p class="ml-4">All orders</p><br><br>
             <a href="/createPost" class="mt-md-3 ml-3"><b>Social</b></a>
             <p class="ml-3"><b>Messages</b></p>
             <a href="/logout" class="ml-3">Logout</a>
         </div>
         <div class="col-md-10">
             <div class="container p-md-5 p-3">
-                <input type="text" placeholder="Search" class="form-control">
-                <div class="border form-inline w-75 mx-auto mt-3">
-                    <p class="ml-5 mr-4 mt-3">Requests</p>
-                    <p class="ml-5 mr-4 mt-3">Pending</p>
-                    <p class="ml-5 mr-4 mt-3">Ready</p>
-                    <p class="ml-5 mr-4 mt-3">Delivered</p>
-                    <p class="ml-5 mr-4 mt-3">All</p><br><br>
-                </div>
+                <input type="text" class="form-control" placeholder="Search">
+                <br><br>
+                <table class="table">
+                    <tr>
+                        <th>
+                            User Name
+                        </th>
+                        <th>
+                            Products
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <th>
+                            Total Bill
+                        </th>
+                    </tr>
+                    @each(order in orders)
+                    <tr>
+                        <td>{{order.user_name}}</td>
+                        <td>
+                            @each(o in order.Products)
+                            {{o.name}}<br>
+                            @endeach
+                        </td>
+                        <td>
+                            @each(o in order.Products)
+                            {{o.price}}<br>
+                            @endeach
+                        </td>
+                        <td>
+                            @each(o in order.Products)
+                            {{o.quantity}}<br>
+                            @endeach
+                        </td>
+                        <td>{{order.totalPrice}}</td>
+                    </tr>
+                    @endeach
+                </table>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </body>
 

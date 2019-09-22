@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Romp Social</title>
+    <title>Document</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -28,10 +28,34 @@
     nav {
         background: #18054a;
     }
+
+    .feedback {
+        background-color: #31B0D5;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        border-color: #46b8da;
+    }
+
+    h2 {
+        color: #000;
+        font-size: 26px;
+        font-weight: 300;
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+        margin: 30px 0 60px;
+    }
+
+    #mybutton {
+        position: fixed;
+        bottom: -4px;
+        right: 10px;
+    }
 </style>
 
 <body>
-    <div class="container">
+    <div class="">
         <nav class="navbar navbar-expand-lg navbar-light mb-5">
             <a href="/">
                 <div class="form-inline">
@@ -56,8 +80,8 @@
                         <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">{{user.username}}</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/myorders">My orders</a>
-                        </li>
+                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/myorders">My orders</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/logout">Logout</a>
                     </li>
@@ -74,28 +98,48 @@
                 </ul>
             </div>
         </nav>
-        @each(post in posts)
-        <a href="/vendor/{{post.author._id}}">
-            <div class="mt-lg-5">
-                <div class="mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
-                    <div class="form-inline">
-                        <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"></div>
-                        <p class="ml-2 mt-3">{{post.author.vendorName}}<br>{{post.author.vendorLocation}}</p>
-                    </div>
-                </div>
-                <div class="mt-lg-3 p-lg-5 mb-lg-5 text-center">
-                    <img src="{{post.image}}" width="100%" alt="" width="100%"><br><br>
-                    <p>{{post.content}}</p>
-                    <div class="text-center w-50 mx-auto">
-                        <h4 class="float-left"><b>Save</b></h4>
-                        <h4 class="float-right"><b>Share</b></h4>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <br>
-        @endeach
-    </div>
+        <div class="container">
+            <table class="table">
+                <tr>
+                    <th>
+                        Vendor Name
+                    </th>
+                    <th>
+                        Products
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Total Bill
+                    </th>
+                </tr>
+                @each(order in orders)
+                <tr>
+                    <td>{{order.vendor_name}}</td>
+                    <td>
+                        @each(o in order.Products)
+                        {{o.name}}<br>
+                        @endeach
+                    </td>
+                    <td>
+                        @each(o in order.Products)
+                        {{o.price}}<br>
+                        @endeach
+                    </td>
+                    <td>
+                        @each(o in order.Products)
+                        {{o.quantity}}<br>
+                        @endeach
+                    </td>
+                    <td>{{order.totalPrice}}</td>
+                </tr>
+                @endeach
+            </table>
+        </div>
 </body>
 
 </html>
