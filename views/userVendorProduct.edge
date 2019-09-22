@@ -17,6 +17,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <style>
     nav {
@@ -230,6 +231,19 @@
 
     }
 </style>
+<style>
+    .badge-notify {
+        background: red;
+        position: relative;
+        top: -20px;
+        right: 10px;
+    }
+
+    .my-cart-icon-affix {
+        position: fixed;
+        z-index: 999;
+    }
+</style>
 
 <body>
     <div class="">
@@ -271,6 +285,12 @@
                     @endif
                 </ul>
             </div>
+            <h1>
+                <div style="float: right; cursor: pointer;">
+                    <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span
+                            class="badge badge-notify my-cart-badge"></span></span>
+                </div>
+            </h1>
         </nav>
     </div>
     <div class="row mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
@@ -302,7 +322,11 @@
                     <p>{{vendorProduct.product_name}}</p>
                     <p>{{vendorProduct.company_name}}</p>
                     <p>{{vendorProduct.prize}}</p>
-                    <button class="btn border">Add</button>
+                    <button class="btn btn-danger my-cart-btn" data-id="{{$loop.index}}"
+                        data-name="{{vendorProduct.product_name}}" data-summary="{{vendorProduct.company_name}}"
+                        data-price="{{vendorProduct.prize}}" data-quantity="1"
+                        data-image="{{vendorProduct.product_pic}}">Add to
+                        Cart</button>
                 </div>
                 @endeach
             </div>
@@ -315,6 +339,68 @@
         <div class="col-md-6 text-center p-3" style="background: #000000;color: white ">
             <h3>Proceed &nbsp;-></h3>
         </div>
+        <script type="text/javascript" src="/js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.mycart.js"></script>
+
+        <script type="text/javascript">  $(function () {
+
+                var goToCartIcon = function ($addTocartBtn) {
+                    var $cartIcon = $(".my-cart-icon");
+                    var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({ "position": "fixed", "z-index": "999" });
+                    $addTocartBtn.prepend($image);
+                    var position = $cartIcon.position();
+                    $image.animate({
+                        top: position.top,
+                        left: position.left
+                    }, 500, "linear", function () {
+                        $image.remove();
+                    });
+                }
+
+                $('.my-cart-btn').myCart({
+                    currencySymbol: '₹',
+                    classCartIcon: 'my-cart-icon',
+                    classCartBadge: 'my-cart-badge',
+                    classProductQuantity: 'my-product-quantity',
+                    classProductRemove: 'my-product-remove',
+                    classCheckoutCart: 'my-cart-checkout',
+                    affixCartIcon: true,
+                    showCheckoutModal: true,
+                    numberOfDecimals: 2,
+                    cartItems: [],
+                    clickOnAddToCart: function ($addTocart) {
+                        goToCartIcon($addTocart);
+                    },
+                    afterAddOnCart: function (products, totalPrice, totalQuantity) {
+                        console.log("afterAddOnCart", products, totalPrice, totalQuantity);
+                    },
+                    clickOnCartIcon: function ($cartIcon, products, totalPrice, totalQuantity) {
+                        console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
+                    },
+                    checkoutCart: function (products, totalPrice, totalQuantity) {
+                        var checkoutString = "Total Price: " + totalPrice + "Total Quantity: " + totalQuantity;
+                        checkoutString += "id \t name \t summary \t price \t quantity \t image path";
+                        $.each(products, function () {
+                            checkoutString += ("" + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
+                        });
+                        totalp = {}
+                        totalp.totalPrice = totalPrice;
+                        totalp.totalQuantity = totalQuantity;
+                        products.push(totalp)
+                        console.log(products)
+                        $.ajax({
+                            type: 'POST',
+                            data: JSON.stringify(products),
+                            contentType: 'application/json',
+                            url: '/checkout',
+                        });
+                        console.log(typeof (products))
+                        console.log("checking out", products, totalPrice, totalQuantity);
+                    },
+                });
+            });
+        </script>
     </div>
 </body>
 
