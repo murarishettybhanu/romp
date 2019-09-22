@@ -43,25 +43,32 @@
         <form action="/vendor/store" method="POST" encType="multipart/form-data">
             Vendor name <br><br>
             <input type="text" class="form-control" name="vendorName" required><br>
-            Vendor Location<br><br>
+            Vendor Area<br><br>
             <input type="text" class="form-control" name="vendorLocation" required><br>
             Vendor Display Pic<br><br>
             <input type="file" class="form-control" name="vendorDisplayPic" required><br>
             Vendor Carosal Pic<br><br>
-            <input type="file" class="form-control" name="vendorDisplay" required><br>
+            <input type="file" class="form-control" name="vendorDisplay" multiple required><br>
             Vendor Description<br><br>
             <textarea name="vendorDescription" id="" cols="30" rows="10" class="form-control" required></textarea><br>
-            Vendor Phone no<br><br>
-            <input type="text" name="vendorPhoneNo" class="form-control" required><br>
-            Email<br><br>
-            <input type="email" name="vendorEmail" class="form-control" required><br>
+            Vendor Personal Phone no<br><br>
+            <input type="text" name="vendorPersonalPhoneNo" class="form-control" required><br>
+            Vendor Business Phone no<br><br>
+            <input type="text" name="vendorBusinessPhoneNo" class="form-control" required><br>
+            Personal Email<br><br>
+            <input type="email" name="vendorPersonalEmail" class="form-control" required><br>
+            Business Email<br><br>
+            <input type="email" name="vendorBusinessEmail" class="form-control" required><br>
             Category<br><br>
             <select name="vendorCategory" id="" class="form-control" required>
-                <option value="Opt1">Opt1</option>
-                <option value="Opt2">Opt2</option>
-                <option value="Opt3">Opt3</option>
-                <option value="Opt4">Opt4</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Clothes">Clothes</option>
+                <option value="Food">Food</option>
+                <option value="Sports">Sports</option>
+                <option value="pharma">pharma</option>
             </select><br>
+            Vendor Address<br><br>
+            <textarea name="vendorAddress" id="" cols="30" rows="10" class="form-control" required></textarea><br>
             Store open time
             <input type="time" name="storeOpenTime" class="form-control" placeholder="start time" required><br>
             Store close time

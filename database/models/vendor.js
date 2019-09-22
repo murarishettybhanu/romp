@@ -5,7 +5,12 @@ const vendorSchema = new mongoose.Schema({
   vendorName: {
     type: String
   },
-  vendorEmail: {
+  vendorPersonalEmail: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  vendorBusinessEmail: {
     type: String,
     unique: true,
     required: true
@@ -18,13 +23,16 @@ const vendorSchema = new mongoose.Schema({
     type: String
   },
   vendorDisplay:{
-    type: String
+    type: Array
   },
   vendorLocation : {
       type: String
   },
-  vendorPhoneNo :{
+  vendorPersonalPhoneNo :{
       type: String
+  },
+  vendorBusinessPhoneNo :{
+    type: String
   },
   vendorCategory:{
       type: String
@@ -34,6 +42,9 @@ const vendorSchema = new mongoose.Schema({
   },
   storeCloseTime :{
       type: Array
+  },
+  vendorAddress : {
+    type: String
   },
   password:{
       type:String

@@ -2,8 +2,8 @@ const vendor = require("../database/models/vendor");
 const bcrypt = require('bcryptjs');
 
 module.exports = (req,res)=>{
-    const {vendorEmail,password} = req.body;
-    vendor.findOne({vendorEmail},(error,vendor)=>{
+    const {vendorBusinessEmail,password} = req.body;
+    vendor.findOne({vendorBusinessEmail},(error,vendor)=>{
         if(vendor){
             bcrypt.compare(password,vendor.password,(error,same)=>{
                 if(same){
