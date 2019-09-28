@@ -57,48 +57,30 @@
         </div>
         <div class="col-md-10">
             <div class="container p-md-5 p-3">
-                <form action="/product/store" method="POST" encType="multipart/form-data">
+                <form action="/product/update/{{product._id}}" method="POST" encType="multipart/form-data">
                     Product name <br>
-                    <input type="text" name="product_name" class="form-control"><br>
+                    <input type="text" name="product_name" value="{{product.product_name}}" class="form-control"><br>
                     Brand name<br>
-                    <input type="text" name="company_name" class="form-control"><br>
-                    Product pictures<br>
-                    <input type="file" name="product_pic" class="form-control"><br>
-                    Product Type<br><br>
-                    <select name="product_type" id="" class="form-control" required>
-                        <option value="Groceries">Groceries</option>
-                        <option value="Clothes">Clothes</option>
-                        <option value="Food">Food</option>
-                        <option value="Sports">Sports</option>
-                        <option value="Pharma">pharma</option>
-                    </select><br>
+                    <input type="text" name="company_name" value="{{product.company_name}}" class="form-control"><br>
                     Barcode(If available)<br>
-                    <input type="text" name="barcode" class="form-control"><br>
+                    <input type="text" name="barcode" value="{{product.barcode}}" class="form-control"><br>
                     Cost Price<br>
-                    <input type="text" name="costprice" class="form-control"><br>
+                    <input type="text" name="costprice" value="{{product.costprice}}" class="form-control"><br>
                     Discount<br>
-                    <input type="text" name="discount" class="form-control"><br>
+                    <input type="text" name="discount" value="{{product.discount}}" class="form-control"><br>
                     Margin<br>
-                    <input type="text" name="margin" class="form-control"><br>
+                    <input type="text" name="margin" value="{{product.margin}}" class="form-control"><br>
                     Selling Price<br>
-                    <input type="text" name="sellingprice" class="form-control"><br>
+                    <input type="text" name="sellingprice" value="{{product.sellingprice}}" class="form-control"><br>
                     MRP<br>
-                    <input type="text" name="mrp" class="form-control"><br>
+                    <input type="text" name="mrp" value="{{product.mrp}}" class="form-control"><br>
                     SGST<br>
-                    <input type="text" name="sgst" class="form-control"><br>
+                    <input type="text" name="sgst" value="{{product.sgst}}" class="form-control"><br>
                     CGST<br>
-                    <input type="text" name="cgst" class="form-control"><br>
-                    Number of units<br>
-                    <input type="text" name="number" class="form-control">
-                    <select name="units" id="" class="form-control" required>
-                        <option value="Units">Units</option>
-                        <option value="Kgs">Kgs</option>
-                        <option value="Grams">Grams</option>
-                        <option value="Liters">Liters</option>
-                    </select><br>
+                    <input type="text" name="cgst" value="{{product.cgst}}" class="form-control"><br>
                     Best Before <br>
-                    <input type="date" name="best_before" class="form-control"><br><br>
-                    <button class="btn btn-primary">Add Product</button>
+                    <input type="date" name="best_before" value="{{product.best_before}}" class="form-control"><br><br>
+                    <button class="btn btn-primary">Edit Product</button>
                 </form>
             </div>
         </div>

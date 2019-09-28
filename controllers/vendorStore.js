@@ -4,7 +4,6 @@ const path = require("path")
 module.exports = (req, res) => {
 
   const { vendorDisplayPic,vendorDisplay } = req.files;
-  console.log(vendorDisplay.length);
   let arr = [];
   if (vendorDisplayPic) {
     for(i=0;i<vendorDisplay.length;i++){
@@ -12,7 +11,6 @@ module.exports = (req, res) => {
       dp = `/vendorProfile/${vendorDisplay[i].name}`;
       arr.push(dp)
     }
-    console.log(arr)
     vendorDisplayPic.mv(path.resolve(__dirname, '..', 'public/vendorProfile', vendorDisplayPic.name));
     pp = `/vendorProfile/${vendorDisplayPic.name}`;
   } else {

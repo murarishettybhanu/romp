@@ -55,49 +55,49 @@
 </style>
 
 <body>
-    <div class="">
-        <nav class="navbar navbar-expand-lg navbar-light mb-5">
-            <a href="/">
-                <div class="form-inline">
-                    <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
-                    <p class="ml-3 mt-4"></p>
-                </div>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/social">Social</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Search</a>
-                    </li>
-                    @if(auth)
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">{{user.username}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/myorders">My orders</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/logout">Logout</a>
-                    </li>
-                    @endif
-                    @if(!auth)
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/user/loginpage">User
-                            login/Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/vendor/login">Vendor login</a>
-                    </li>
-                    @endif
-                </ul>
+    <nav class="navbar navbar-expand-lg navbar-light mb-5">
+        <a href="/">
+            <div class="form-inline">
+                <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
+                <p class="ml-3 mt-4"></p>
             </div>
-        </nav>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/social">Social</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Search</a>
+                </li>
+                @if(auth)
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">{{user.username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/myorders">My orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/logout">Logout</a>
+                </li>
+                @endif
+                @if(!auth)
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/user/loginpage">User
+                        login/Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/vendor/login">Vendor login</a>
+                </li>
+                @endif
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 @each(v in vendor.vendorDisplay)
@@ -141,36 +141,42 @@
         <br><br>
         <h2>Vendor Profile</h2>
         <div class="form-inline">
-            <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"></div>
+            <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%">
+                <img src="{{vendor.vendorDisplayPic}}" height="65px" width="65px" style="border-radius: 50%;" alt="">
+            </div>
             <p class="ml-2 mt-3">{{vendor.vendorName}} <br>{{vendor.vendorLocation}}</p>
         </div><br>
-        <p class="mb-lg-5">Description of business {{vendor.vendorDescription}}</p>
         <div class="mt-lg-5">
             <div class="row text-center">
-                <div class="col-md-3">
-                    <p>About</p>
+                <div class="col-md-3" onclick="about()">
+                    <a href="#">
+                        <p>About</p>
+                    </a>
                 </div>
                 <div class="col-md-3">
                     <p>reviews</p>
                 </div>
-                <div class="col-md-3">
-                    <p>reviews</p>
-                </div>
-                <div class="col-md-3">
-                    <p>reviews</p>
+                <div class="col-md-3" onclick="posts()">
+                    <a href="#">
+                        <p>Posts</p>
+                    </a>
                 </div>
             </div>
         </div>
+        <p id="about" class="mb-lg-5"><b>Description of business</b><br> {{vendor.vendorDescription}}</p>
         <div>
             <a class="text-center" href="/buy/{{vendor._id}}"> <button class="btn btn-primary">Buy</button> </a>
         </div>
-        <h2>Vendor Posts</h2>
-        <div class="mt-lg-5">
+        <div class="mt-lg-5" id="posts" style="display:none;">
+            <h2>Vendor Posts</h2>
             @each(post in posts)
             <div class="mt-lg-5">
                 <div class="mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
                     <div class="form-inline">
-                        <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"></div>
+                        <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%">
+                            <img src="{{vendor.vendorDisplayPic}}" height="65px" width="65px"
+                                style="border-radius: 50%;" alt="">
+                        </div>
                         <p class="ml-2 mt-3">{{post.author.vendorName}}<br>{{post.author.vendorLocation}}</p>
                     </div>
                 </div>
@@ -231,6 +237,16 @@
             var data = document.getElementById("text").value;
             theDiv.innerHTML += "<br>" + data;
 
+        }
+    </script>
+    <script>
+        function posts() {
+            document.getElementById("posts").style.display = "block";
+            document.getElementById("about").style.display = "none";
+        }
+        function about() {
+            document.getElementById("posts").style.display = "none";
+            document.getElementById("about").style.display = "block";
         }
     </script>
 </body>

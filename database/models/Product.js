@@ -4,11 +4,18 @@ const ProductSchema = new mongoose.Schema({
     product_name: String,
     company_name: String,
     product_pic: String,
+    product_type: String,
+    costprice: String,
+    discount: String,
+    margin: String,
+    sellingprice: String,
+    mrp: String,
+    sgst: String,
+    cgst: String,
+    number: String,
+    units: String,
     barcode: String,
-    subtype: String,
     best_before: String,
-    weight: String,
-    prize: String,
     author_id:String
 })
 

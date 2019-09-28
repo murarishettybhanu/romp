@@ -11,6 +11,10 @@ const OrderSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: new Date()
+  },
+  status: {
+    type: String,
+    default: 'Pending'
   }
 })
 

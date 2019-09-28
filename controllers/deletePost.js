@@ -9,7 +9,6 @@ module.exports = (req, res) => {
             res.redirect('/createPost')
         }
         else{
-            console.log(sucess)
             res.redirect('/createPost')
         }
     })

@@ -63,6 +63,9 @@
                             User Name
                         </th>
                         <th>
+                            Date Of Order
+                        </th>
+                        <th>
                             Products
                         </th>
                         <th>
@@ -74,10 +77,17 @@
                         <th>
                             Total Bill
                         </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Options
+                        </th>
                     </tr>
                     @each(order in orders)
                     <tr>
                         <td>{{order.user_name}}</td>
+                        <td>{{order.createdAt.toDateString()}}</td>
                         <td>
                             @each(o in order.Products)
                             {{o.name}}<br>
@@ -94,6 +104,13 @@
                             @endeach
                         </td>
                         <td>{{order.totalPrice}}</td>
+                        <td>{{order.status}}</td>
+                        <td>
+                            @if(order.status=='Pending')
+                            <a href="/accept/{{order._id}}" class="text-success btn">Accept</a><br>
+                            <a href="/reject/{{order._id}}" class="text-danger btn">Reject</a>
+                            @endif
+                        </td>
                     </tr>
                     @endeach
                 </table>

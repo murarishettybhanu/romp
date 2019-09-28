@@ -105,6 +105,9 @@
                         Vendor Name
                     </th>
                     <th>
+                        Date Of Order
+                    </th>
+                    <th>
                         Products
                     </th>
                     <th>
@@ -116,10 +119,17 @@
                     <th>
                         Total Bill
                     </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Options
+                    </th>
                 </tr>
                 @each(order in orders)
                 <tr>
                     <td>{{order.vendor_name}}</td>
+                    <td>{{order.createdAt.toDateString()}}</td>
                     <td>
                         @each(o in order.Products)
                         {{o.name}}<br>
@@ -136,6 +146,12 @@
                         @endeach
                     </td>
                     <td>{{order.totalPrice}}</td>
+                    <td>{{order.status}}</td>
+                    <td>
+                        @if(order.status=='Pending')
+                        <a href="/cancel/{{order._id}}" class="btn btn-danger">Cancel</a><br>
+                        @endif
+                    </td>
                 </tr>
                 @endeach
             </table>

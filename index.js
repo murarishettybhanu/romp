@@ -26,7 +26,7 @@ const addProductController = require("./controllers/addProduct");
 const vendorProductListController = require("./controllers/vendorProductList");
 const createPostController = require("./controllers/createPost");
 const storePostController = require("./controllers/storePost");
-const vendorUserProfilecontroller = require("./controllers/vendorProfile");
+const vendorUserProfileController = require("./controllers/vendorProfile");
 const vendorUserBuyControll = require("./controllers/vendorUserBuy");
 const socialController = require("./controllers/social")
 const storeProduct = require("./controllers/productStore")
@@ -34,7 +34,13 @@ const deletePostController = require("./controllers/deletePost")
 const deleteProductController = require("./controllers/deleteProduct")
 const checkoutController = require("./controllers/checkout");
 const ordersController = require("./controllers/orders")
-const myordersController = require("./controllers/myorders")
+const myordersController = require("./controllers/myorders");
+const updateStockController = require("./controllers/updateStock");
+const editProductController = require("./controllers/editProduct");
+const updateController = require("./controllers/updateproduct");
+const acceptOrderController = require("./controllers/acceptOrder");
+const rejectOrderController = require("./controllers/rejectOrder");
+const cancelOrderController = require("./controllers/cancelOrder")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -85,13 +91,20 @@ app.get('/logout',logoutController);
 app.get('/product/add',addProductController);
 app.get('/createPost',createPostController);
 app.post('/post/store',storePostController);
-app.get('/vendor/:id',vendorUserProfilecontroller);
+app.get('/vendor/:id',vendorUserProfileController);
 app.get('/buy/:id',vendorUserBuyControll)
 app.get('/social',socialController)
 app.get('/deletePost/:id',deletePostController)
 app.get('/deleteProduct/:id',deleteProductController);
 app.get('/orders',ordersController);
-app.get('/myorders',myordersController)
+app.get('/myorders',myordersController);
+app.post('/updatestock/:id',updateStockController);
+app.get('/product/edit/:id',editProductController);
+app.post('/product/update/:id',updateController);
+app.get('/accept/:id',acceptOrderController);
+app.get('/reject/:id',rejectOrderController);
+app.get('/cancel/:id',cancelOrderController)
+
 
 
 app.listen(4000, () => {

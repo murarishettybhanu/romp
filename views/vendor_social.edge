@@ -72,12 +72,14 @@
                 <h5><b>Previous Posts</b></h5><br>
                 @each(post in posts)
                 <div class="form-inline">
-                    <div style="width:60px;height:60px;border-radius: 50%" class="border border-dark"></div>
+                    <div style="width:60px;height:60px;border-radius: 50%" class="border border-dark">
+                            <img src="{{post.author.vendorDisplayPic}}" height="65px" width="65px" style="border-radius: 50%">
+                    </div>
                     <p class="ml-2 mt-3">{{post.author.vendorName}} <br>{{post.author.vendorLocation}}</p>
                 </div><br><br>
                 <img src="{{post.image}}" alt="" height="350px" width="100%"><br><br>
                 <p>{{post.content}}</p>
-                <button>Edit</button> <a href="/deletePost/{{post._id}}"><button>Delete</button></a>
+                <a href="/deletePost/{{post._id}}"><button class="btn btn-danger">Delete</button></a>
                 <br><br>
                 @endeach
             </div>

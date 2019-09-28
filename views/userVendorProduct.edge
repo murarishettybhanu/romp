@@ -298,7 +298,9 @@
     </div>
     <div class="row mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
         <div class="col-md-2 form-inline">
-            <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%"></div>
+            <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%">
+                    <img src="{{vendor.vendorDisplayPic}}" height="65px" width="65px" style="border-radius: 50%">
+            </div>
             <p class="ml-2 mt-3">{{vendor.vendorName}}<br>{{vendor.vendorLocation}}</p>
         </div>
         <div class="col-md-10">
@@ -307,13 +309,13 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-2 border-dark border text-center">
-            <h5 class="mt-lg-5">category</h5>
-            <h5>category</h5>
-            <h5>category</h5>
-            <h5>category</h5>
-            <h5>category</h5>
-            <h5>category</h5>
-            <h5>category</h5>
+            <h5 class="mt-lg-5"><b>categories</b></h5>
+            <h5>Groceries</h5>
+            <h5>Clothing</h5>
+            <h5>Food</h5>
+            <h5>Electronics</h5>
+            <h5>Grooming</h5>
+            <h5>Medicines</h5>
         </div>
         <div class="col-md-9 ml-lg-5">
             <div class="row mt-lg-5">
@@ -324,10 +326,10 @@
                     </div>
                     <p>{{vendorProduct.product_name}}</p>
                     <p>{{vendorProduct.company_name}}</p>
-                    <p>{{vendorProduct.prize}}</p>
+                    <p>{{vendorProduct.mrp}}</p>
                     <button class="btn btn-danger my-cart-btn" data-id="{{$loop.index}}"
                         data-name="{{vendorProduct.product_name}}" data-summary="{{vendorProduct.company_name}}"
-                        data-price="{{vendorProduct.prize}}" data-quantity="1"
+                        data-price="{{vendorProduct.mrp}}" data-quantity="1"
                         data-image="{{vendorProduct.product_pic}}">Add to
                         Cart</button>
                 </div>
