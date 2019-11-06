@@ -117,8 +117,7 @@
                             @if(order.status=='Pending')
                             <a href="/accept/{{order._id}}" class="text-success btn">Accept</a><br>
                             <a href="/reject/{{order._id}}" class="text-danger btn">Reject</a>
-                            @endif 
-                            <br>
+                            @endif
                             @if(order.status!='Delivered' && order.status=='Accepted')
                             <a href="/delivered/{{order._id}}" class="text-primary btn">Delivered</a>
                             @endif

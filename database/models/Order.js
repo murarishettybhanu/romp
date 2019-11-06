@@ -8,6 +8,11 @@ const OrderSchema = new mongoose.Schema({
   vendor_name:String,
   totalPrice:String,
   totalQuantity:String,
+  mobile : String,
+  hno: String,
+  area : String,
+  city : String,
+  pincode : String,
   createdAt: {
     type: Date,
     default: new Date()

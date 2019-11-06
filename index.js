@@ -40,7 +40,9 @@ const editProductController = require("./controllers/editProduct");
 const updateController = require("./controllers/updateproduct");
 const acceptOrderController = require("./controllers/acceptOrder");
 const rejectOrderController = require("./controllers/rejectOrder");
-const cancelOrderController = require("./controllers/cancelOrder")
+const cancelOrderController = require("./controllers/cancelOrder");
+const deliveredOrderController = require("./controllers/deliveredOrder");
+const pendingOrdersController = require("./controllers/pendingOrders");
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -103,7 +105,9 @@ app.get('/product/edit/:id',editProductController);
 app.post('/product/update/:id',updateController);
 app.get('/accept/:id',acceptOrderController);
 app.get('/reject/:id',rejectOrderController);
-app.get('/cancel/:id',cancelOrderController)
+app.get('/cancel/:id',cancelOrderController);
+app.get('/delivered/:id',deliveredOrderController);
+app.get('/pendingOrders',pendingOrdersController);
 
 
 
