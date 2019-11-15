@@ -34,7 +34,7 @@
         <a class="navbar-brand" href="/vendor/homePage">
             <div class="form-inline">
                 <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
-                <p class="ml-3 mt-4" id="navbrand">Romp | Vendor</p>
+                <p class="ml-3 mt-4" id="navbrand">Lena | Vendor</p>
             </div>
         </a>
         <h5 class="p-4">{{vendor.vendorName}}</h5>
@@ -42,23 +42,34 @@
     </nav>
     <div class="row m-md-5 m-3">
         <div class="col-md-2" style="color: white;">
-            <p class="mt-md-5 ml-3"><b>Products</b></p>
-            <a href="/vendor/products/list" class="ml-4">Products list</a><br>
-            <a href="/product/add" class="ml-4">Add product</a>
+            <p class="mt-md-10 ml-3"><b>Products</b></p>
+            <a href="/vendor/products/list" style="color: #ffcc00;" class="ml-4">Products list</a><br>
+            <a href="/product/add" style="color: #ffcc00;" class="ml-4">Add product</a>
             <br><br>
-            <p class="ml-3"><b>Orders</b></p>
-            <p class="ml-4">Pending orders</p>
-            <p class="ml-4">All orders</p><br><br>
-            <a href="/createPost" class="mt-md-3 ml-3"><b>Social</b></a>
-            <p class="ml-3"><b>Messages</b></p>
-            <a href="/logout" class="ml-3">Logout</a>
+            <p class="mt-md-10 ml-3"><b>Orders</b></p>
+            <a href="/pendingorders" style="color: #ffcc00;" class="ml-4">Pending orders</a><br>
+            <a href="/vendor/homePage" style="color: #ffcc00;" class="ml-4">All orders</a>
+            <br><br>
+            <p class="mt-md-10 ml-3"><b>Feeds </b></p>
+            <a href="/createPost" style="color: #ffcc00;" class="ml-4">Create/Edit </a><br><br>
+            <p class="mt-md-10 ml-3"><b>Messages</b></p>
+            <a href="#" style="color: #ffcc00;" class="ml-4">Customer </a><br>
+            <a href="#" style="color: #ffcc00;" class="ml-4">Lena Support</a><br><br>
+            <p class="mt-md-10 ml-3"><b>Profile</b></p>
+            <a href="#" style="color: #ffcc00;" class="ml-4">Update Profile </a><br>
+            <a href="/logout" style="color: #ffcc00;" class="ml-4">Logout </a><br><br>
         </div>
         <div class="col-md-10">
-            <div class="container p-md-5 p-3">
-                <input type="text" class="form-control" placeholder="Search">
+            <div class=" p-md-5 p-3" style="background-color: white;">
+                <input type="text" id="search" placeholder="Type to search" class="form-control w-50 mx-auto">
                 <br><br>
-                <table class="table">
+                <h3 class="text-center mb-3">Pending Orders</h3>
+
+                <table class="table" id="table">
                     <tr>
+                        <th>
+                            Order Number
+                        </th>
                         <th>
                             User Name
                         </th>
@@ -89,6 +100,7 @@
                     </tr>
                     @each(order in orders)
                     <tr>
+                        <td>{{order.uniqueId}}</td>
                         <td>{{order.user_name}}</td>
                         <td>{{order.hno}} <br>
                             {{order.area}} <br>
@@ -131,5 +143,16 @@
     </div>
     </div>
 </body>
+<script>
+    var $rows = $('#table tr');
+    $('#search').keyup(function () {
+        var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+        $rows.show().filter(function () {
+            var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+            return !~text.indexOf(val);
+        }).hide();
+    });
+</script>
 
 </html>

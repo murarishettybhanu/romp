@@ -33,47 +33,58 @@
     <nav class="navbar navbar-light" style="background: #ffcc00">
         <a class="navbar-brand" href="/vendor/homePage">
             <div class="form-inline">
-                <img src="/logo.png" width="70" height="70"
-                    class="d-inline-block align-top ml-3 mt-3" alt="">
-                <p class="ml-3 mt-4" id="navbrand">Romp | Vendor</p>
+                <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
+                <p class="ml-3 mt-4" id="navbrand">Lena | Vendor</p>
             </div>
         </a>
         <h5 class="p-4">{{vendor.vendorName}}</h5>
 
     </nav>
-    <div class="row m-md-5 m-3">
+
+    <div class="row m-md-5 m-3" >
         <div class="col-md-2" style="color: white;">
-            <p class="mt-md-5 ml-3"><b>Products</b></p>
-            <a href="/vendor/products/list" class="ml-4">Products list</a><br>
-            <a href="/product/add" class="ml-4">Add product</a>
+            <p class="mt-md-10 ml-3"><b>Products</b></p>
+            <a href="/vendor/products/list" style="color: #ffcc00;" class="ml-4">Products list</a><br>
+            <a href="/product/add" style="color: #ffcc00;" class="ml-4">Add product</a>
             <br><br>
-            <p class="ml-3"><b>Orders</b></p>
-            <p class="ml-4">Pending orders</p>
-            <a href="/orders"><p class="ml-4">All orders</p></a><br><br>
-            <a href="/createPost" class="mt-md-3 ml-3"><b>Social</b></a>
-            <p class="ml-3"><b>Messages</b></p>
-            <a href="/logout" class="ml-3">Logout</a>
+            <p class="mt-md-10 ml-3"><b>Orders</b></p>
+            <a href="/pendingorders" style="color: #ffcc00;" class="ml-4">Pending orders</a><br>
+            <a href="/vendor/homePage" style="color: #ffcc00;" class="ml-4">All orders</a>
+            <br><br>
+            <p class="mt-md-10 ml-3"><b>Feeds </b></p>
+            <a href="/createPost" style="color: #ffcc00;" class="ml-4">Create/Edit </a><br><br>
+            <p class="mt-md-10 ml-3"><b>Messages</b></p>
+            <a href="#" style="color: #ffcc00;" class="ml-4">Customer </a><br>
+            <a href="#" style="color: #ffcc00;" class="ml-4">Lena Support</a><br><br>
+            <p class="mt-md-10 ml-3"><b>Profile</b></p>
+            <a href="#" style="color: #ffcc00;" class="ml-4">Update Profile </a><br>
+            <a href="/logout" style="color: #ffcc00;" class="ml-4">Logout </a><br><br>
+
         </div>
         <div class="col-md-10">
-            <div class="container p-md-5 p-3">
-                <form action="/post/store" method="POST" encType="multipart/form-data">
-                    <div class="border rounded">
-                        <textarea name="content" id="" cols="30" rows="5" required
-                            class="form-control border-0"></textarea><br>
-                        Image <br>
-                        <input type="file" name="image" required>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn btn-primary">Post</button>
-                    </div>
-                </form>
+            <div class="p-md-5 p-3" style="background-color: white;">
+                <div class="border rounded p-2">
+                    <h2 class="text-center">Create Feeds</h2>
+                        <form action="/post/store" method="POST" encType="multipart/form-data">
+                            <div class="">
+                                <textarea name="content" id="" cols="30" rows="5" required
+                                    class="form-control" placeholder="Write Something ..."></textarea><br><br>
+                                Upload Image <br><br>
+                                <input type="file" name="image" required>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary">Post</button>
+                            </div>
+                        </form>
+                </div>
 
                 <br><br>
-                <h5><b>Previous Posts</b></h5><br>
+                <h5><b>Previous Feeds</b></h5><br>
                 @each(post in posts)
                 <div class="form-inline">
                     <div style="width:60px;height:60px;border-radius: 50%" class="border border-dark">
-                            <img src="{{post.author.vendorDisplayPic}}" height="65px" width="65px" style="border-radius: 50%">
+                        <img src="{{post.author.vendorDisplayPic}}" height="65px" width="65px"
+                            style="border-radius: 50%">
                     </div>
                     <p class="ml-2 mt-3">{{post.author.vendorName}} <br>{{post.author.vendorLocation}}</p>
                 </div><br><br>
@@ -83,9 +94,19 @@
                 <br><br>
                 @endeach
             </div>
+
         </div>
-    </div>
-    </div>
 </body>
+<script>
+    var $rows = $('#table tr');
+    $('#search').keyup(function () {
+        var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+        $rows.show().filter(function () {
+            var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+            return !~text.indexOf(val);
+        }).hide();
+    });
+</script>
 
 </html>

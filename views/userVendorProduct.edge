@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Lena</title>
+    <link rel="stylesheet"
+        href="https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -18,396 +20,234 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<style>
-    nav {
-        background: #18054a;
-    }
-
-    body {
-        background: #e2eaef;
-        font-family: "Open Sans", sans-serif;
-    }
-
-    h2 {
-        color: #000;
-        font-size: 26px;
-        font-weight: 300;
-        text-align: center;
-        text-transform: uppercase;
-        position: relative;
-        margin: 30px 0 60px;
-    }
-
-    h2::after {
-        content: "";
-        width: 100px;
-        position: absolute;
-        margin: 0 auto;
-        height: 4px;
-        border-radius: 1px;
-        background: #7ac400;
-        left: 0;
-        right: 0;
-        bottom: -20px;
-    }
-
-    .carousel {
-        margin: 50px auto;
-        padding: 0 70px;
-    }
-
-    .carousel .item {
-        color: #747d89;
-        min-height: 325px;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    .carousel .thumb-wrapper {
-        padding: 25px 15px;
-        background: #fff;
-        border-radius: 6px;
-        text-align: center;
-        position: relative;
-        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-    }
-
-    .carousel .item .img-box {
-        height: 120px;
-        margin-bottom: 20px;
-        width: 100%;
-        position: relative;
-    }
-
-    .carousel .item img {
-        max-width: 100%;
-        max-height: 100%;
-        display: inline-block;
-        position: absolute;
-        bottom: 0;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
-    }
-
-    .carousel .item h4 {
-        font-size: 18px;
-    }
-
-    .carousel .item h4,
-    .carousel .item p,
-    .carousel .item ul {
-        margin-bottom: 5px;
-    }
-
-    .carousel .thumb-content .btn {
-        color: #7ac400;
-        font-size: 11px;
-        text-transform: uppercase;
-        font-weight: bold;
-        background: none;
-        border: 1px solid #7ac400;
-        padding: 6px 14px;
-        margin-top: 5px;
-        line-height: 16px;
-        border-radius: 20px;
-    }
-
-    .carousel .thumb-content .btn:hover,
-    .carousel .thumb-content .btn:focus {
-        color: #fff;
-        background: #7ac400;
-        box-shadow: none;
-    }
-
-    .carousel .thumb-content .btn i {
-        font-size: 14px;
-        font-weight: bold;
-        margin-left: 5px;
-    }
-
-    .carousel .carousel-control {
-        height: 44px;
-        width: 40px;
-        background: #7ac400;
-        margin: auto 0;
-        border-radius: 4px;
-        opacity: 0.8;
-    }
-
-    .carousel .carousel-control:hover {
-        background: #78bf00;
-        opacity: 1;
-    }
-
-    .carousel .carousel-control i {
-        font-size: 36px;
-        position: absolute;
-        top: 50%;
-        display: inline-block;
-        margin: -19px 0 0 0;
-        z-index: 5;
-        left: 0;
-        right: 0;
-        color: #fff;
-        text-shadow: none;
-        font-weight: bold;
-    }
-
-    .carousel .item-price {
-        font-size: 13px;
-        padding: 2px 0;
-    }
-
-    .carousel .item-price strike {
-        opacity: 0.7;
-        margin-right: 5px;
-    }
-
-    .carousel .carousel-control.left i {
-        margin-left: -2px;
-    }
-
-    .carousel .carousel-control.right i {
-        margin-right: -4px;
-    }
-
-    .carousel .carousel-indicators {
-        bottom: -50px;
-    }
-
-    .carousel-indicators li,
-    .carousel-indicators li.active {
-        width: 10px;
-        height: 10px;
-        margin: 4px;
-        border-radius: 50%;
-        border: none;
-    }
-
-    .carousel-indicators li {
-        background: rgba(0, 0, 0, 0.2);
-    }
-
-    .carousel-indicators li.active {
-        background: rgba(0, 0, 0, 0.6);
-    }
-
-    .carousel .wish-icon {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        z-index: 99;
-        cursor: pointer;
-        font-size: 16px;
-        color: #abb0b8;
-    }
-
-    .carousel .wish-icon .fa-heart {
-        color: #ff6161;
-    }
-
-    .star-rating li {
-        padding: 0;
-    }
-
-    .star-rating i {
-        font-size: 14px;
-        color: #ffc000;
-    }
-</style>
-<style>
-    .element {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    @media screen and (min-width: 1000px) {
-        #search {
-            width: 25%;
-        }
-
-    }
-</style>
-<style>
-    .badge-notify {
-        background: red;
-        position: relative;
-        top: -20px;
-        right: 10px;
-    }
-
-    .my-cart-icon-affix {
-        position: fixed;
-        z-index: 999;
-    }
-</style>
 
 <body>
-    <div class="">
-        <nav class="navbar navbar-expand-lg navbar-light mb-5">
-            <a href="/">
-                <div class="form-inline">
-                    <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
-                    <p class="ml-3 mt-4"></p>
-                </div>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/social">Social</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">Search</a>
-                    </li>
-                    @if(auth)
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="#">{{user.username}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/myorders">My orders</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/logout">Logout</a>
-                    </li>
-                    @endif
-                    @if(!auth)
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/user/loginpage">User
-                            login/Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-lg-3 mr-lg-3" style="color:white" href="/vendor/login">Vendor login</a>
-                    </li>
-                    @endif
-                </ul>
-            </div>
-            <h1>
-                <div style="float: right; cursor: pointer;">
-                    <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span
-                            class="badge badge-notify my-cart-badge"></span></span>
-                </div>
-            </h1>
-        </nav>
-    </div>
-    <div class="row mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-md-3 ml-md-3">
-        <div class="col-md-2 form-inline">
-            <div class="border border-dark" style="width: 65px;height:65px;border-radius: 50%">
-                    <img src="{{vendor.vendorDisplayPic}}" height="65px" width="65px" style="border-radius: 50%">
-            </div>
-            <p class="ml-2 mt-3">{{vendor.vendorName}}<br>{{vendor.vendorLocation}}</p>
-        </div>
-        <div class="col-md-10">
-            <input type="text" name="" class="form-control mt-4 border-dark" placeholder="Search" id="search">
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-md-2 border-dark border text-center">
-            <h5 class="mt-lg-5"><b>categories</b></h5>
-            <h5>Groceries</h5>
-            <h5>Clothing</h5>
-            <h5>Food</h5>
-            <h5>Electronics</h5>
-            <h5>Grooming</h5>
-            <h5>Medicines</h5>
-        </div>
-        <div class="col-md-9 ml-lg-5">
-            <div class="row mt-lg-5">
-                @each(vendorProduct in vendorProducts)
-                <div class="col-md-3 border border-dark p-3 ml-lg-3 mr-lg-3">
-                    <div class="p-3 border border-dark text-center">
-                        <img src="{{vendorProduct.product_pic}}" alt="" height="200px" width="200px">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand ml-lg-5" href="#"><img src="/images/logo.png" alt="" height="50px" width="58px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            Lena-controls="navbarNav" Lena-expanded="false" Lena-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-lg-auto mr-lg-5">
+                <li class="nav-item active ml-lg-3 mr-lg-3">
+                    <a class="nav-link" href="#head">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ml-lg-3 mr-lg-3">
+                    <a class="nav-link" href="#services">About Us</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link ml-lg-3 mr-lg-3" href="/social">Social</a>
+                </li>
+                @if(!auth)
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Login
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#u_login">User Login</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#v_login">Vendor Login</a>
                     </div>
-                    <p>{{vendorProduct.product_name}}</p>
-                    <p>{{vendorProduct.company_name}}</p>
-                    <p>{{vendorProduct.mrp}}</p>
-                    <button class="btn btn-danger my-cart-btn" data-id="{{$loop.index}}"
-                        data-name="{{vendorProduct.product_name}}" data-summary="{{vendorProduct.company_name}}"
-                        data-price="{{vendorProduct.mrp}}" data-quantity="1"
-                        data-image="{{vendorProduct.product_pic}}">Add to
-                        Cart</button>
+                </li>
+                <li class="nav-item ml-lg-3 mr-lg-3">
+                    <a class="nav-link" href="/user/register">Register</a>
+                </li>
+                @endif
+                @if(auth)
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3 mr-lg-3" href="/myorders">My orders</a>
+                </li>
+                @endif
+                <li class="nav-item ml-lg-3 mr-lg-3">
+                    <a class="nav-link" href="#footer">Contact us</a>
+                </li>
+                @if(auth)
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{user.username}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </li>
+                @endif
+            </ul>
+        </div>
+        <h1>
+            <div style="float: right; cursor: pointer;">
+                <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span
+                        class="badge badge-notify my-cart-badge"></span></span>
+            </div>
+        </h1>
+    </nav>
+    <!-- Products start -->
+    <div class="container">
+        <h2 class="text-center mt-3">Products</h2>
+        <div class="row">
+            @each(vendorProduct in vendorProducts)
+            <div class="col-md-4">
+                <img class="pimg mt-3" src="{{vendorProduct.product_pic}}" alt="">
+                <p class="text-center mt-2"><b>{{vendorProduct.product_name}}</b></p>
+                <p class="text-center mt-2">RS. {{vendorProduct.mrp}}</p>
+                <button class="btn btn-primary my-cart-btn center" data-id="{{$loop.index}}"
+                    data-name="{{vendorProduct.product_name}}" data-summary="{{vendorProduct.company_name}}"
+                    data-price="{{vendorProduct.mrp}}" data-quantity="1" data-image="{{vendorProduct.product_pic}}"><i
+                        class="fa fa-cart-plus"></i>Add to Cart</button>
+            </div>
+            @endeach
+        </div>
+    </div>
+    <!-- Products end -->
+    <!-- footer start -->
+    <div class="mt-5 p-5" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h5><b>Lena</b></h5> <br>
+                    <a href="Lena Privacy Policy.pdf" style="color: white;">
+                        <p>Privacy policy</p>
+                    </a>
+                    <a href="Lena Terms and Conditions.pdf" style="color: white;">
+                        <p>Terms of use</p>
+                    </a>
+                    <p>Careers</p><br><br>
+                    <p>© Copyright 2019 - All Rights Reserved. Designed by Branciau Technologies</p>
                 </div>
-                @endeach
+                <div class="col-md-5">
+                    <p>Social Connects</p> <br>
+                    <a href="https://www.facebook.com/Lenacoin-100724118039916/?modal=admin_todo_tour"
+                        style="color: white;"> <i class="fa fa-facebook-square ml-1 mr-1" style="font-size: 30px;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lena.co.in1/" style="color: white;"> <i
+                            class="fa fa-instagram ml-1 mr-1" style="font-size: 30px;"></i> </a>
+                    <a href="https://wa.me/917981701250" style="color: white;"> <i class="fa fa-whatsapp ml-1 mr-1"
+                            style="font-size: 30px;"></i> </a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6 text-center p-3" style="background: #ffd500;color: black ">
-            <h3>Open self-scanner</h3>
+    <!-- footer end -->
+
+    <!-- User login modal start -->
+    <!-- Modal -->
+    <div class="modal fade" id="u_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/user/login" method="POST" encType="multipart/form-data">
+                        Email <br>
+                        <input type="email" name="email" class="form-control" required id=""> <br>
+                        Password <br>
+                        <input type="password" name="password" required class="form-control" id=""> <br><br>
+                        <button class="btn btn-primary">Login</button>
+                    </form><br>
+                    <p>Not yet registered. <a href="/user/register">Register Now!</a></p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6 text-center p-3" style="background: #000000;color: white ">
-            <h3>Proceed &nbsp;-></h3>
-        </div>
-        <script type="text/javascript" src="/js/jquery-2.2.3.min.js"></script>
-        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/jquery.mycart.js"></script>
-
-        <script type="text/javascript">  $(function () {
-
-                var goToCartIcon = function ($addTocartBtn) {
-                    var $cartIcon = $(".my-cart-icon");
-                    var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({ "position": "fixed", "z-index": "999" });
-                    $addTocartBtn.prepend($image);
-                    var position = $cartIcon.position();
-                    $image.animate({
-                        top: position.top,
-                        left: position.left
-                    }, 500, "linear", function () {
-                        $image.remove();
-                    });
-                }
-
-                $('.my-cart-btn').myCart({
-                    currencySymbol: '₹',
-                    classCartIcon: 'my-cart-icon',
-                    classCartBadge: 'my-cart-badge',
-                    classProductQuantity: 'my-product-quantity',
-                    classProductRemove: 'my-product-remove',
-                    classCheckoutCart: 'my-cart-checkout',
-                    affixCartIcon: true,
-                    showCheckoutModal: true,
-                    numberOfDecimals: 2,
-                    cartItems: [],
-                    clickOnAddToCart: function ($addTocart) {
-                        goToCartIcon($addTocart);
-                    },
-                    afterAddOnCart: function (products, totalPrice, totalQuantity) {
-                        console.log("afterAddOnCart", products, totalPrice, totalQuantity);
-                    },
-                    clickOnCartIcon: function ($cartIcon, products, totalPrice, totalQuantity) {
-                        console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
-                    },
-                    checkoutCart: function (products, totalPrice, totalQuantity) {
-                        var checkoutString = "Total Price: " + totalPrice + "Total Quantity: " + totalQuantity;
-                        checkoutString += "id \t name \t summary \t price \t quantity \t image path";
-                        $.each(products, function () {
-                            checkoutString += ("" + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
-                        });
-                        totalp = {}
-                        totalp.totalPrice = totalPrice;
-                        totalp.totalQuantity = totalQuantity;
-                        products.push(totalp)
-                        console.log(products)
-                        $.ajax({
-                            type: 'POST',
-                            data: JSON.stringify(products),
-                            contentType: 'application/json',
-                            url: '/checkout/{{vendor._id}}',
-                        });
-                        alert("Order Placed Successfully")
-                        console.log(typeof (products))
-                        console.log("checking out", products, totalPrice, totalQuantity);
-                    },
-                });
-            });
-        </script>
     </div>
+    <!-- User login modal end -->
+
+    <!-- Vendor login modal start -->
+    <!-- Modal -->
+    <div class="modal fade" id="v_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Vendor Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/vendor/login/validate" method="POST" encType="multipart/form-data">
+                        email <br>
+                        <input type="email" name="vendorBusinessEmail" class="form-control" id=""> <br>
+                        Password <br>
+                        <input type="password" name="password" class="form-control" id=""> <br><br>
+                        <button class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Vendor login modal end -->
+    <script type="text/javascript" src="/js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.mycart.js"></script>
+
+    <script type="text/javascript">  $(function () {
+
+            var goToCartIcon = function ($addTocartBtn) {
+                var $cartIcon = $(".my-cart-icon");
+                var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({ "position": "fixed", "z-index": "999" });
+                $addTocartBtn.prepend($image);
+                var position = $cartIcon.position();
+                $image.animate({
+                    top: position.top,
+                    left: position.left
+                }, 500, "linear", function () {
+                    $image.remove();
+                });
+            }
+
+            $('.my-cart-btn').myCart({
+                currencySymbol: '₹',
+                classCartIcon: 'my-cart-icon',
+                classCartBadge: 'my-cart-badge',
+                classProductQuantity: 'my-product-quantity',
+                classProductRemove: 'my-product-remove',
+                classCheckoutCart: 'my-cart-checkout',
+                affixCartIcon: true,
+                showCheckoutModal: true,
+                numberOfDecimals: 2,
+                cartItems: [],
+                clickOnAddToCart: function ($addTocart) {
+                    goToCartIcon($addTocart);
+                },
+                afterAddOnCart: function (products, totalPrice, totalQuantity) {
+                    console.log("afterAddOnCart", products, totalPrice, totalQuantity);
+                },
+                clickOnCartIcon: function ($cartIcon, products, totalPrice, totalQuantity) {
+                    console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
+                },
+                checkoutCart: function (products, totalPrice, totalQuantity) {
+                    var checkoutString = "Total Price: " + totalPrice + "Total Quantity: " + totalQuantity;
+                    checkoutString += "id \t name \t summary \t price \t quantity \t image path";
+                    $.each(products, function () {
+                        checkoutString += ("" + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
+                    });
+                    totalp = {}
+                    totalp.totalPrice = totalPrice;
+                    totalp.totalQuantity = totalQuantity;
+                    products.push(totalp)
+                    console.log(products)
+                    $.ajax({
+                        type: 'POST',
+                        data: JSON.stringify(products),
+                        contentType: 'application/json',
+                        url: '/checkout/{{vendor._id}}',
+                    });
+                    alert("Order Placed Successfully")
+                    console.log(typeof (products))
+                    console.log("checking out", products, totalPrice, totalQuantity);
+                },
+            });
+        });
+    </script>
 </body>
 
 </html>

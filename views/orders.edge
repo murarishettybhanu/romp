@@ -40,22 +40,27 @@
         <h5 class="p-4">{{vendor.vendorName}}</h5>
 
     </nav>
+    <button data-toggle="collapse" data-target="#collapsible">Show/Hide</button>
+
     <div class="row m-md-5 m-3">
-        <div class="col-md-2" style="color: white;">
-            <p class="mt-md-5 ml-3"><b>Products</b></p>
+        <div class="col-md-2  position-fixed" style="color: white;">
+            <p class="mt-md-10 ml-3"><b>Products</b></p>
             <a href="/vendor/products/list" class="ml-4">Products list</a><br>
             <a href="/product/add" class="ml-4">Add product</a>
             <br><br>
-            <p class="ml-3"><b>Orders</b></p>
-            <p class="ml-4">Pending orders</p>
-            <p class="ml-4">All orders</p><br><br>
-            <a href="/createPost" class="mt-md-3 ml-3"><b>Social</b></a>
-            <p class="ml-3"><b>Messages</b></p>
-            <a href="/logout" class="ml-3">Logout</a>
+            <p class="mt-md-10 ml-3"><b>Orders</b></p>
+            <a href="/pendingorders" class="ml-4">Pending orders</a><br>
+            <a href="/orders" class="ml-4">All orders</a>
+            <br><br>
+            <p class="mt-md-10 ml-3"><b>Feeds </b></p>
+            <a href="/createPost" class="ml-4">Create/Edit </a><br><br>
+            <p class="mt-md-10 ml-3"><b>Messages</b></p><br><br>
+            <a href="/logout" class="mt-md-10 ml-3">Logout</a>
+
         </div>
         <div class="col-md-10">
-            <div class="container p-md-5 p-3">
-                <input type="text" class="form-control" placeholder="Search">
+            <div class="p-md-5 p-3" style="background-color: white;">
+                <input type="text" placeholder="Search" class="form-control w-50 mx-auto">
                 <br><br>
                 <table class="table">
                     <tr>
@@ -117,7 +122,7 @@
                             @if(order.status=='Pending')
                             <a href="/accept/{{order._id}}" class="text-success btn">Accept</a><br>
                             <a href="/reject/{{order._id}}" class="text-danger btn">Reject</a>
-                            @endif 
+                            @endif
                             <br>
                             @if(order.status!='Delivered' && order.status=='Accepted')
                             <a href="/delivered/{{order._id}}" class="text-primary btn">Delivered</a>
@@ -127,10 +132,12 @@
                     @endeach
                 </table>
             </div>
+
         </div>
-    </div>
-    </div>
-    </div>
 </body>
+<script>
+    if ($("#xs-check").is(":visible"))
+        $("#collapsible").removeClass("in");
+</script>
 
 </html>

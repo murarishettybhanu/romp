@@ -23,9 +23,9 @@
       showCheckoutModal: true,
       numberOfDecimals: 2,
       cartItems: null,
-      clickOnAddToCart: function ($addTocart) {},
-      afterAddOnCart: function (products, totalPrice, totalQuantity) {},
-      clickOnCartIcon: function ($cartIcon, products, totalPrice, totalQuantity) {},
+      clickOnAddToCart: function ($addTocart) { },
+      afterAddOnCart: function (products, totalPrice, totalQuantity) { },
+      clickOnCartIcon: function ($cartIcon, products, totalPrice, totalQuantity) { },
       checkoutCart: function (products, totalPrice, totalQuantity) {
         return false;
       },
@@ -218,7 +218,7 @@
         '<div class="modal-dialog" role="document">' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '<h4><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4>'+
+        '<h4><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4>' +
         '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
         '<h4 class="modal-title" id="myModalLabel"></h4>' +
         '</div>' +
@@ -262,6 +262,10 @@
         '<td></td>' +
         '<td class="text-right"><strong id="' + idGrandTotal + '"></strong></td>' +
         '<td></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td></td>' +
+        '<td><select name="ordertype" class="form-control"><option>Self-pickup</option><option>Delivery</option></select></td>' +
         '</tr>' :
         '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Your cart is empty</div>'
       );
