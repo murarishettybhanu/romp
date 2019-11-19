@@ -9,7 +9,6 @@ module.exports = async (req, res) => {
     let a = req.body;
     const arr = [];
     for (i = 0; i < a.length - 1; i++) {
-        
         var v = parseInt(a[i].price) * parseInt(a[i].quantity);
         a[i].Ptotal = v;
         arr.push(a[i]);

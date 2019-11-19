@@ -265,6 +265,12 @@
         <div id="myBtnContainer">
             <div class="row mt-3">
                 <div class="col p-1">
+                    <button class="btn1" onclick="filterSelection('all')">
+                        <img class="center" src="images/allCat.png" alt="">
+                        <p class="text-center mt-2">All</p>
+                    </button>
+                </div>
+                <div class="col p-1">
                     <button class="btn1" onclick="filterSelection('Groceries')">
                         <img class="center" src="images/Groceries.png" alt="">
                         <p class="text-center mt-2">Groceries</p>
@@ -300,12 +306,6 @@
                         <p class="text-center mt-2">Medicines</p>
                     </button>
                 </div>
-                <div class="col p-1">
-                    <button class="btn1 active" onclick="filterSelection('all')">
-                        <img class="center" src="images/allCat.png" alt="">
-                        <p class="text-center mt-2">All</p>
-                    </button>
-                </div>
             </div>
         </div>
 
@@ -314,7 +314,7 @@
         <h2 class="text-center mt-3">Popular Near You</h2>
         <div class="row">
             @each(v in vendors)
-            <div class="col-md-4 mt-3 filterDiv {{v.vendorCategory}} " id="con">
+            <div class="col-md-4 mt-3 filterDiv {{v.vendorCategory}}" id="con" style="margin-left: -2px;">
                 <img class="vimg" src="{{v.vendorDisplayPic}}" alt="">
                 <div class="overlay"></div>
                 <div class="middle">
@@ -327,8 +327,8 @@
         </div>
         <!-- popular near you end -->
 
-            <!-- services start -->
-            <!-- <div id="services">
+        <!-- services start -->
+        <!-- <div id="services">
             <h2 class="mb-sm-3 mb-md-3 mt-5 text-center"><b>Services</b></h2>
             <div id="ser">
                 <div class="row mt-lg-5">
@@ -377,11 +377,11 @@
                 </div>
             </div>
         </div> -->
-            <!-- services end -->
-            <br>
-            <br>
-            <!-- how to use start -->
-            <!-- <div class="mt-lg-5 mb-lg-5" id="htu">
+        <!-- services end -->
+        <br>
+        <br>
+        <!-- how to use start -->
+        <!-- <div class="mt-lg-5 mb-lg-5" id="htu">
             <h2 class="text-center"><b>How to use ?</b></h2>
             <div class="card-deck mt-lg-5">
 
@@ -420,129 +420,128 @@
 
             </div>
         </div> -->
-        </div>
-        <!-- how to use end -->
-        <!-- footer start -->
-        <div class="mt-5 p-5" id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h5><b>Romp</b></h5> <br>
-                        <a href="Lena Privacy Policy.pdf" style="color: white;">
-                            <p>Privacy policy</p>
-                        </a>
-                        <a href="Lena Terms and Conditions.pdf" style="color: white;">
-                            <p>Terms of use</p>
-                        </a>
-                        <p>Careers</p><br><br>
-                        <p>© Copyright 2019 - All Rights Reserved. Designed by Branciau Technologies</p>
-                    </div>
-                    <div class="col-md-5">
-                        <p>Social Connects</p> <br>
-                        <a href="https://www.facebook.com/Lenacoin-100724118039916/?modal=admin_todo_tour"
-                            style="color: white;"> <i class="fa fa-facebook-square ml-1 mr-1"
-                                style="font-size: 30px;"></i>
-                        </a>
-                        <a href="https://www.instagram.com/lena.co.in1/" style="color: white;"> <i
-                                class="fa fa-instagram ml-1 mr-1" style="font-size: 30px;"></i> </a>
-                        <a href="https://wa.me/917981701250" style="color: white;"> <i class="fa fa-whatsapp ml-1 mr-1"
-                                style="font-size: 30px;"></i> </a>
-                    </div>
+    </div>
+    <!-- how to use end -->
+    <!-- footer start -->
+    <div class="mt-5 p-5" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h5><b>Romp</b></h5> <br>
+                    <a href="Lena Privacy Policy.pdf" style="color: white;">
+                        <p>Privacy policy</p>
+                    </a>
+                    <a href="Lena Terms and Conditions.pdf" style="color: white;">
+                        <p>Terms of use</p>
+                    </a>
+                    <p>Careers</p><br><br>
+                    <p>© Copyright 2019 - All Rights Reserved. Designed by Branciau Technologies</p>
+                </div>
+                <div class="col-md-5">
+                    <p>Social Connects</p> <br>
+                    <a href="https://www.facebook.com/Lenacoin-100724118039916/?modal=admin_todo_tour"
+                        style="color: white;"> <i class="fa fa-facebook-square ml-1 mr-1" style="font-size: 30px;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lena.co.in1/" style="color: white;"> <i
+                            class="fa fa-instagram ml-1 mr-1" style="font-size: 30px;"></i> </a>
+                    <a href="https://wa.me/917981701250" style="color: white;"> <i class="fa fa-whatsapp ml-1 mr-1"
+                            style="font-size: 30px;"></i> </a>
                 </div>
             </div>
         </div>
-        <!-- footer end -->
+    </div>
+    <!-- footer end -->
 
-        <!-- User login modal start -->
-        <!-- Modal -->
-        <div class="modal fade" id="u_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/user/login" method="POST" encType="multipart/form-data">
-                            Email <br>
-                            <input type="email" name="email" class="form-control" required id=""> <br>
-                            Password <br>
-                            <input type="password" name="password" required class="form-control" id=""> <br><br>
-                            <button class="btn btn-primary">Login</button>
-                        </form><br>
-                        <p>Not yet registered. <a href="/user/register">Register Now!</a></p>
-                    </div>
+    <!-- User login modal start -->
+    <!-- Modal -->
+    <div class="modal fade" id="u_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/user/login" method="POST" encType="multipart/form-data">
+                        Email <br>
+                        <input type="email" name="email" class="form-control" required id=""> <br>
+                        Password <br>
+                        <input type="password" name="password" required class="form-control" id=""> <br><br>
+                        <button class="btn btn-primary">Login</button>
+                    </form><br>
+                    <p>Not yet registered. <a href="/user/register">Register Now!</a></p>
                 </div>
             </div>
         </div>
-        <!-- User login modal end -->
+    </div>
+    <!-- User login modal end -->
 
-        <!-- Vendor login modal start -->
-        <!-- Modal -->
-        <div class="modal fade" id="v_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Vendor Login</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/vendor/login/validate" method="POST" encType="multipart/form-data">
-                            email <br>
-                            <input type="email" required name="vendorBusinessEmail" class="form-control" id=""> <br>
-                            Password <br>
-                            <input type="password" required name="password" class="form-control" id=""> <br><br>
-                            <button class="btn btn-primary">Login</button>
-                        </form>
-                    </div>
+    <!-- Vendor login modal start -->
+    <!-- Modal -->
+    <div class="modal fade" id="v_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Vendor Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/vendor/login/validate" method="POST" encType="multipart/form-data">
+                        email <br>
+                        <input type="email" required name="vendorBusinessEmail" class="form-control" id=""> <br>
+                        Password <br>
+                        <input type="password" required name="password" class="form-control" id=""> <br><br>
+                        <button class="btn btn-primary">Login</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- Vendor login modal end -->
+    </div>
+    <!-- Vendor login modal end -->
 
-        <!-- User Register modal start -->
-        <!-- Modal -->
-        <div class="modal fade" id="u_register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/user/store" method="POST" encType="multipart/form-data">
-                            Username <br>
-                            <input type="text" name="username" required class="form-control" id=""> <br>
-                            Email <br>
-                            <input type="email" name="email" required class="form-control" id=""> <br>
-                            Mobile <br>
-                            <input type="text" name="mobile" required class="form-control" id=""> <br><br>
-                            H.NO <br>
-                            <input type="text" name="hno" required class="form-control" id=""> <br><br>
-                            Area <br>
-                            <input type="text" name="area" required class="form-control" id=""> <br><br>
-                            City <br>
-                            <input type="text" name="city" required class="form-control" id=""> <br><br>
-                            Pincode <br>
-                            <input type="text" name="pincode" required class="form-control" id=""> <br><br>
-                            Password <br>
-                            <input type="password" name="password" required class="form-control" id=""> <br><br>
-                            <button class="btn btn-primary">Register</button>
-                        </form>
-                    </div>
+    <!-- User Register modal start -->
+    <!-- Modal -->
+    <div class="modal fade" id="u_register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/user/store" method="POST" encType="multipart/form-data">
+                        Username <br>
+                        <input type="text" name="username" required class="form-control" id=""> <br>
+                        Email <br>
+                        <input type="email" name="email" required class="form-control" id=""> <br>
+                        Mobile <br>
+                        <input type="text" name="mobile" required class="form-control" id=""> <br><br>
+                        H.NO <br>
+                        <input type="text" name="hno" required class="form-control" id=""> <br><br>
+                        Area <br>
+                        <input type="text" name="area" required class="form-control" id=""> <br><br>
+                        City <br>
+                        <input type="text" name="city" required class="form-control" id=""> <br><br>
+                        Pincode <br>
+                        <input type="text" name="pincode" required class="form-control" id=""> <br><br>
+                        Password <br>
+                        <input type="password" name="password" required class="form-control" id=""> <br><br>
+                        <button class="btn btn-primary">Register</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- User Register modal end -->
+    </div>
+    <!-- User Register modal end -->
 </body>
 <script>
     filterSelection("all")
