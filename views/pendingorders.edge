@@ -34,30 +34,34 @@
         <a class="navbar-brand" href="/vendor/homePage">
             <div class="form-inline">
                 <img src="/logo.png" width="70" height="70" class="d-inline-block align-top ml-3 mt-3" alt="">
-                <p class="ml-3 mt-4" id="navbrand">Lena | Vendor</p>
+                <p class="ml-3 mt-4" id="navbrand">ROMP | Vendor</p>
             </div>
         </a>
         <h5 class="p-4">{{vendor.vendorName}}</h5>
 
     </nav>
     <div class="row m-md-5 m-3">
-        <div class="col-md-2" style="color: white;">
+        <div class="col-md-2 position-sticky" style="color: white;">
             <p class="mt-md-10 ml-3"><b>Products</b></p>
             <a href="/vendor/products/list" style="color: #ffcc00;" class="ml-4">Products list</a><br>
-            <a href="/product/add" style="color: #ffcc00;" class="ml-4">Add product</a>
+            <a href="/product/add" style="color: #ffcc00;" class="ml-4">Add product</a><br>
+            <a href="#" class="ml-4" style="color: #ffcc00;" data-toggle="modal" data-target="#addsubcat">Add Sub Categories</a>
+
             <br><br>
             <p class="mt-md-10 ml-3"><b>Orders</b></p>
             <a href="/pendingorders" style="color: #ffcc00;" class="ml-4">Pending orders</a><br>
             <a href="/vendor/homePage" style="color: #ffcc00;" class="ml-4">All orders</a>
+
             <br><br>
             <p class="mt-md-10 ml-3"><b>Feeds </b></p>
             <a href="/createPost" style="color: #ffcc00;" class="ml-4">Create/Edit </a><br><br>
             <p class="mt-md-10 ml-3"><b>Messages</b></p>
-            <a href="#" style="color: #ffcc00;" class="ml-4">Customer </a><br>
-            <a href="#" style="color: #ffcc00;" class="ml-4">Lena Support</a><br><br>
+            <a href="/customerChat" style="color: #ffcc00;" class="ml-4">Customer </a><br>
+            <a href="#" style="color: #ffcc00;" class="ml-4">ROMP Support</a><br><br>
             <p class="mt-md-10 ml-3"><b>Profile</b></p>
-            <a href="#" style="color: #ffcc00;" class="ml-4">Update Profile </a><br>
+            <!-- <a href="#" style="color: #ffcc00;" class="ml-4">Update Profile </a><br> -->
             <a href="/logout" style="color: #ffcc00;" class="ml-4">Logout </a><br><br>
+
         </div>
         <div class="col-md-10">
             <div class=" p-md-5 p-3" style="background-color: white;">
@@ -92,6 +96,9 @@
                             Total Bill
                         </th>
                         <th>
+                            Order Type
+                        </th>
+                        <th>
                             Status
                         </th>
                         <th>
@@ -124,6 +131,7 @@
                             @endeach
                         </td>
                         <td>{{order.totalPrice}}</td>
+                        <td>{{order.ordertype}}</td>
                         <td>{{order.status}}</td>
                         <td>
                             @if(order.status=='Pending')
@@ -142,6 +150,31 @@
     </div>
     </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addsubcat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Sub-Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/addSubCategory" method="POST" encType="multipart/form-data">
+                    Sub-Category Name <br>
+                    <input type="text" required name="vendorSubCat" class="form-control" id=""> <br>
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="#" class="ml-4" style="color: #ffcc00;" data-toggle="modal" data-target="#addsubcat">Add Sub Categories</a>
+
+
+<!-- Sub CAt  modal end -->
 </body>
 <script>
     var $rows = $('#table tr');

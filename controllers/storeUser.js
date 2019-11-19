@@ -3,8 +3,10 @@ const User = require('../database/models/User')
 module.exports = (req, res) => {
   User.create(req.body, (error, user) => {
     if (error) {
-      return res.redirect('/user/register')
+      req.flash('EmailAlreadyExist', 'Email already exist please try using other mailid')
+      return res.redirect('/')
     }
-    res.redirect('/user/loginpage')
+    req.flash('RegistrationSuccess', 'Registered successfully.Login in continue')
+    res.redirect('/')
   })
 }

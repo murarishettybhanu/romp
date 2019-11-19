@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ROMP||Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body onload="myFunction()">
+    @if(messages.Success)
+    <script>
+        function myFunction() {
+            swal({
+                title: "Successfully Updated",
+                timer: 6000,
+                showConfirmButton: false
+            });
+        };
+    </script>
+    @endif
+    <nav>
+        <center>
+                <h3><a href="/">Home | </a> <a href="/admin/vendors">Vendors Management</a></h3>
+        </center>
+        
+    </nav>
+    <div class="container">
+        <h1 class="text-center mb-5">Promotional Carousel</h1>
+        <button class="btn btn-primary ml-5 mr-5" data-toggle="modal" data-target="#one">First</button>
+        <button class="btn btn-primary ml-5 mr-5" data-toggle="modal" data-target="#two">second</button>
+        <button class="btn btn-primary ml-5 mr-5" data-toggle="modal" data-target="#three">Third</button>
+        <button class="btn btn-primary ml-5 mr-5" data-toggle="modal" data-target="#four">Fourth</button>
+        <button class="btn btn-primary ml-5 mr-5" data-toggle="modal" data-target="#five">Fifth</button>
+        <button class="btn btn-primary ml-5 mr-5" data-toggle="modal" data-target="#six">Sixth</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="one" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">First Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/storeCarousel" method="POST" encType="multipart/form-data">
+                        <input required type="file" name="one" id="1" class="form-control">
+                        <input required type="text" name="oneLink" id="1" class="form-control">
+                        <button class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="two" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">First Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/storeCarousel" method="POST" encType="multipart/form-data">
+                        <input required type="file" name="two" id="1" class="form-control">
+                        <input required type="text" name="twoLink" id="1" class="form-control">
+                        <button class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="three" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">First Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/storeCarousel" method="POST" encType="multipart/form-data">
+                        <input required type="file" name="three" id="1" class="form-control">
+                        <input required type="text" name="threeLink" id="1" class="form-control">
+                        <button class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="four" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">First Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/storeCarousel" method="POST" encType="multipart/form-data">
+                        <input required type="file" name="four" id="1" class="form-control">
+                        <input required type="text" name="fourLink" id="1" class="form-control">
+                        <button class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="five" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">First Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/storeCarousel" method="POST" encType="multipart/form-data">
+                        <input required type="file" name="five" id="1" class="form-control">
+                        <input required type="text" name="fiveLink" id="1" class="form-control">
+
+                        <button class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="six" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">First Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/storeCarousel" method="POST" encType="multipart/form-data">
+                        <input required type="file" name="six" id="1" class="form-control">
+                        <input required type="text" name="sixLink" id="1" class="form-control">
+                        <button class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

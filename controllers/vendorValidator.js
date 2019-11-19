@@ -12,13 +12,15 @@ module.exports = (req,res)=>{
                 }
                 else{
                     console.log("Entered password is incorrect");
-                    res.redirect('/vendor/login')
+                    req.flash('IncorrectPwd', 'You Have Entered an Incorrect Password')
+                    res.redirect('/')
                 }
             }) 
         }
         else{
             console.log("No user found with that email");
-            res.redirect('/vendor/login')
+            req.flash('IncorrectEmail', 'You Have Entered an Incorrect Email')
+            res.redirect('/')
         }
     })
 }

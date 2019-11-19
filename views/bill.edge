@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Romp Billing</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        .invoice-title h2,
+        .invoice-title h3 {
+            display: inline-block;
+        }
+
+        .table>tbody>tr>.no-line {
+            border-top: none;
+        }
+
+        .table>thead>tr>.no-line {
+            border-bottom: none;
+        }
+
+        .table>tbody>tr>.thick-line {
+            border-top: 2px solid;
+        }
+    </style>
+
+<body onload="calculate()">
+
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="invoice-title">
+                    <h2>Invoice | ROMP | Vendor Name : {{bill.vendor_name}}</h2>
+                    <h3 class="pull-right">Order # {{bill.uniqueId}}</h3>
+                </div>
+                <hr>
+                <div class="row ">
+                    <div class="col-xs-6 text-left">
+                        <address>
+                            <strong>Billed To:</strong><br>
+                            {{ bill.user_name }}<br>
+                            {{ bill.hno }}<br>
+                            {{ bill.area }}<br>
+                            {{bill.city}}, {{bill.pincode}}
+                        </address>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <address>
+                            <strong>Shipped To:</strong><br>
+                            {{ bill.user_name }}<br>
+                            {{ bill.hno }}<br>
+                            {{ bill.area }}<br>
+                            {{bill.city}}, {{bill.pincode}}
+                        </address>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <address>
+                            <strong>Order Type:</strong><br>
+                            {{bill.ordertype}}<br>
+                        </address>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <address>
+                            <strong>Order Date:</strong><br>
+                            {{bill.createdAt.toDateString()}}<br><br>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Order summary</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <td><strong>Item</strong></td>
+                                        <td class="text-center"><strong>Price</strong></td>
+                                        <td class="text-center"><strong>Quantity</strong></td>
+                                        <td class="text-right"><strong>Totals</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+
+
+
+                                    <tr>
+                                        <td class="text-left">
+                                            @each(o in bill.Products)
+                                            {{o.name}}<br>
+                                            @endeach
+                                        </td>
+                                        <td class="text-center">
+                                            @each(o in bill.Products)
+                                            {{o.price}}<br>
+                                            @endeach
+                                        </td>
+                                        <td class="text-center">
+                                            @each(o in bill.Products)
+                                            {{o.quantity}}<br>
+                                            @endeach
+                                        </td>
+                                        <td class="text-right">
+                                            @each(o in bill.Products)
+                                            {{o.Ptotal}}<br>
+                                            @endeach
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                            <td class="text-right"> <b>Total Amount : </b> {{bill.totalPrice}}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button id="btn" class="btn  btn-primary mx-auto " onclick="myFunction()">Print Invoice</button>
+    </div>
+</body>
+<script>
+    function myFunction() {
+        document.getElementById('btn').remove();
+        window.print();
+    }
+    function calculate() {
+        a = document.getElementById()
+        b = document.getElementById()
+    }
+</script>
+
+</html>

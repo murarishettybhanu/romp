@@ -265,7 +265,7 @@
         '</tr>' +
         '<tr>' +
         '<td></td>' +
-        '<td><select name="ordertype" class="form-control"><option>Self-pickup</option><option>Delivery</option></select></td>' +
+        '<td><select name="ordertype" id="ordertype" class="form-control"><option>Self-pickup</option><option>Delivery</option></select></td>' +
         '</tr>' :
         '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Your cart is empty</div>'
       );

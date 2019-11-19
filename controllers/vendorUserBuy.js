@@ -11,6 +11,7 @@ module.exports = async (req, res) => {
         });
     }
     else{
-        res.render('user_loginpage')
+        req.flash('pleaseLogin', 'Please login to continue shopping')
+        res.redirect('/')
     }
 }

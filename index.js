@@ -14,9 +14,7 @@ const flash = require('express-flash');
 const homePageController = require("./controllers/homePage");
 const vendorRegisterController = require("./controllers/vendorRegister");
 const vendoStoreController = require("./controllers/vendorStore");
-const userRegisterController = require("./controllers/userRegister");
 const storeUserController = require("./controllers/storeUser");
-const loginPageController = require("./controllers/loginPage");
 const loginUserController = require("./controllers/loginUser");
 const logoutController = require("./controllers/logout");
 const vendorLoginController = require("./controllers/vendorLogin");
@@ -43,6 +41,13 @@ const rejectOrderController = require("./controllers/rejectOrder");
 const cancelOrderController = require("./controllers/cancelOrder");
 const deliveredOrderController = require("./controllers/deliveredOrder");
 const pendingOrdersController = require("./controllers/pendingOrders");
+const carouselController = require('./controllers/carousel');
+const storeCarouselController = require('./controllers/storeCarousel');
+const adminVendorController = require('./controllers/adminVendor');
+const customerChatController = require('./controllers/customerChat');
+const addSubCategoryController = require("./controllers/addSubCategory");
+const billController = require('./controllers/bill');
+const adminVendorBlockController = require('./controllers/adminVendorBlock');
 
 const app = new express();
 mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
@@ -60,6 +65,7 @@ app.use(
   })
 );
 
+app.use(flash());
 
 app.use(fileUpload());
 app.use(express.static("public"));
@@ -82,9 +88,7 @@ app.post('/vendor/login/validate',vendorValidatController);
 app.get('/vendor/homePage',vendorHomePageController);
 app.get('/vendor/products/list',vendorProductListController);
 
-app.get('/user/register',userRegisterController);
 app.post('/user/store',storeUserController);
-app.get('/user/loginpage',loginPageController);
 app.post('/user/login',loginUserController);
 app.get('/logout',logoutController);
 app.post('/product/store',storeProduct);
@@ -108,7 +112,13 @@ app.get('/reject/:id',rejectOrderController);
 app.get('/cancel/:id',cancelOrderController);
 app.get('/delivered/:id',deliveredOrderController);
 app.get('/pendingOrders',pendingOrdersController);
-
+app.get('/admin/carousel',carouselController);
+app.post('/storeCarousel',storeCarouselController);
+app.get('/admin/vendors',adminVendorController);
+app.get('/customerChat',customerChatController);
+app.post('/addSubCategory',addSubCategoryController);
+app.get('/bill/:id', billController);
+app.get('/admin/:var/:id',adminVendorBlockController);
 
 
 app.listen(4000, () => {

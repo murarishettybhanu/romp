@@ -9,6 +9,9 @@ module.exports = async (req, res) => {
     let a = req.body;
     const arr = [];
     for (i = 0; i < a.length - 1; i++) {
+        
+        var v = parseInt(a[i].price) * parseInt(a[i].quantity);
+        a[i].Ptotal = v;
         arr.push(a[i]);
         const product = await Product.find({ author_id: req.params.id } && { product_name: a[i].name });
         var n = product[0].number - a[i].quantity;
@@ -22,6 +25,8 @@ module.exports = async (req, res) => {
     }
     const totalPrice = a[a.length - 1].totalPrice;
     const totalQuantity = a[a.length - 1].totalQuantity;
+    const ordertype = a[a.length - 1].ordertype;
+
     var uniqueId = "ORD" + Math.floor(Math.random() * (9999 - 1000) + 1000);
 
     Order.create({
@@ -36,7 +41,7 @@ module.exports = async (req, res) => {
         hno: user.hno,
         area: user.area,
         city: user.city,
-        ordertype: req.body.ordertype,
+        ordertype: ordertype,
         pincode: user.pincode,
         uniqueId: uniqueId
     }, (error, order) => {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lena</title>
+    <title>ROMP</title>
     <link rel="stylesheet"
         href="https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -25,7 +25,7 @@
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand ml-lg-5" href="#"><img src="/images/logo.png" alt="" height="50px" width="58px"></a>
+        <a class="navbar-brand ml-lg-5" href="/"><img src="/images/logo.png" alt="" height="50px" width="58px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             Lena-controls="navbarNav" Lena-expanded="false" Lena-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,10 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-lg-auto mr-lg-5">
                 <li class="nav-item active ml-lg-3 mr-lg-3">
-                    <a class="nav-link" href="#head">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item ml-lg-3 mr-lg-3">
-                    <a class="nav-link" href="#services">About Us</a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link ml-lg-3 mr-lg-3" href="/social">Social</a>
@@ -53,7 +50,7 @@
                     </div>
                 </li>
                 <li class="nav-item ml-lg-3 mr-lg-3">
-                    <a class="nav-link" href="/user/register">Register</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#u_register">Register</a>
                 </li>
                 @endif
                 @if(auth)
@@ -112,7 +109,8 @@
     <div class="container">
         <div class="form-inline">
             <div class="circle mt-5">
-
+                <img src="{{vendor.vendorDisplayPic}}" height="88.79px" width="88.79px" style="border-radius: 50%;"
+                    alt="">
             </div>
             <div class="mt-5 ml-3">
                 <p class="mt-3 vendor_name"><b>{{vendor.vendorName}}</b></p>
@@ -120,6 +118,9 @@
             </div>
             <div class="ml-auto mt-5">
                 <a href="/buy/{{vendor._id}}"> <button class="btn btn-primary pl-5 pr-5"><b>Shop</b></button> </a>
+            </div>
+            <div class="ml-2 mt-5">
+                <a href="#"> <button class="btn btn-primary pl-5 pr-5"><b>Chat</b></button> </a>
             </div>
         </div>
         <div class="mt-5">
@@ -226,9 +227,9 @@
                 <div class="modal-body">
                     <form action="/vendor/login/validate" method="POST" encType="multipart/form-data">
                         email <br>
-                        <input type="email" name="vendorBusinessEmail" class="form-control" id=""> <br>
+                        <input type="email" required name="vendorBusinessEmail" class="form-control" id=""> <br>
                         Password <br>
-                        <input type="password" name="password" class="form-control" id=""> <br><br>
+                        <input type="password" required name="password" class="form-control" id=""> <br><br>
                         <button class="btn btn-primary">Login</button>
                     </form>
                 </div>
@@ -236,6 +237,44 @@
         </div>
     </div>
     <!-- Vendor login modal end -->
+
+    <!-- User Register modal start -->
+    <!-- Modal -->
+    <div class="modal fade" id="u_register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/user/store" method="POST" encType="multipart/form-data">
+                        Username <br>
+                        <input type="text" name="username" required class="form-control" id=""> <br>
+                        Email <br>
+                        <input type="email" name="email" required class="form-control" id=""> <br>
+                        Mobile <br>
+                        <input type="text" name="mobile" required class="form-control" id=""> <br><br>
+                        H.NO <br>
+                        <input type="text" name="hno" required class="form-control" id=""> <br><br>
+                        Area <br>
+                        <input type="text" name="area" required class="form-control" id=""> <br><br>
+                        City <br>
+                        <input type="text" name="city" required class="form-control" id=""> <br><br>
+                        Pincode <br>
+                        <input type="text" name="pincode" required class="form-control" id=""> <br><br>
+                        Password <br>
+                        <input type="password" name="password" required class="form-control" id=""> <br><br>
+                        <button class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- User Register modal end -->
 </body>
 
 </html>

@@ -21,10 +21,10 @@ module.exports = async (req, res) => {
     }, (err, done) => {
         if (err) {
             console.log(err);
-            res.redirect('/orders');
+            res.redirect('/vendor/homePage');
         }
         else {
-            res.redirect('/orders');
+            res.redirect('/vendor/homePage');
         }
     })
 }

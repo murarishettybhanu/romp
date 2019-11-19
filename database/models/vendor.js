@@ -37,6 +37,9 @@ const vendorSchema = new mongoose.Schema({
   vendorCategory:{
       type: String
   },
+  vendorSubCategory:{
+    type: Array
+  },
   storeOpenTime:{
       type: Array
   },
@@ -48,6 +51,10 @@ const vendorSchema = new mongoose.Schema({
   },
   password:{
       type:String
+  },
+  status:{
+    type: String,
+    default : "unBlocked"
   }
   
 })
