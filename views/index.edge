@@ -23,6 +23,35 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+    .filterDiv {
+        float: left;
+        color: #ffffff;
+        line-height: 100px;
+        text-align: center;
+        margin: 2px;
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+
+
+    /* Style the buttons */
+    .btn1 {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: inherit;
+        display: inline-block;
+    }
+
+    .btn1:hover {
+        background-color: #ddd;
+    }
+</style>
 
 <body onload="myFunction()">
     @if(messages.loginSucces)
@@ -233,40 +262,59 @@
 
         <!-- Categories start-->
         <h2 class="text-center mt-5">Categories</h2>
-        <div class="row mt-3">
-            <div class="col p-1">
-                <img class="center" src="images/Groceries.png" alt="">
-                <p class="text-center mt-2">Groceries</p>
-            </div>
-            <div class="col p-1">
-                <img class="center" src="images/Clothing.png" alt="">
-                <p class="text-center mt-2">Clothing</p>
-            </div>
-            <div class="col p-1">
-                <img class="center" src="images/Food.png" alt="">
-                <p class="text-center mt-2">Food</p>
-            </div>
-            <div class="col p-1">
-                <img class="center" src="images/Electronics.png" alt="">
-                <p class="text-center mt-2">Electronics</p>
-            </div>
-            <div class="col p-1">
-                <img class="center" src="images/Grooming.png" alt="">
-                <p class="text-center mt-2">Grooming</p>
-            </div>
-            <div class="col p-1">
-                <img class="center" src="images/Medicines.png" alt="">
-                <p class="text-center mt-2">Medicines</p>
-
+        <div id="myBtnContainer">
+            <div class="row mt-3">
+                <div class="col p-1">
+                    <button class="btn1" onclick="filterSelection('Groceries')">
+                        <img class="center" src="images/Groceries.png" alt="">
+                        <p class="text-center mt-2">Groceries</p>
+                    </button>
+                </div>
+                <div class="col p-1">
+                    <button class="btn1" onclick="filterSelection('Clothes')">
+                        <img class="center" src="images/Clothing.png" alt="">
+                        <p class="text-center mt-2">Clothing</p>
+                    </button>
+                </div>
+                <div class="col p-1">
+                    <button class="btn1" onclick="filterSelection('Food')">
+                        <img class="center" src="images/Food.png" alt="">
+                        <p class="text-center mt-2">Food</p>
+                    </button>
+                </div>
+                <div class="col p-1">
+                    <button class="btn1" onclick="filterSelection('Electronics')">
+                        <img class="center" src="images/Electronics.png" alt="">
+                        <p class="text-center mt-2">Electronics</p>
+                    </button>
+                </div>
+                <div class="col p-1">
+                    <button class="btn1" onclick="filterSelection('Grooming')">
+                        <img class="center" src="images/Grooming.png" alt="">
+                        <p class="text-center mt-2">Grooming</p>
+                    </button>
+                </div>
+                <div class="col p-1">
+                    <button class="btn1" onclick="filterSelection('pharma')">
+                        <img class="center" src="images/Medicines.png" alt="">
+                        <p class="text-center mt-2">Medicines</p>
+                    </button>
+                </div>
+                <div class="col p-1">
+                    <button class="btn1 active" onclick="filterSelection('all')">
+                        <img class="center" src="images/allCat.png" alt="">
+                        <p class="text-center mt-2">All</p>
+                    </button>
+                </div>
             </div>
         </div>
-        <!-- Categories end-->
 
+        <!-- Categories end-->
         <!-- popular near you start -->
         <h2 class="text-center mt-3">Popular Near You</h2>
         <div class="row">
             @each(v in vendors)
-            <div class="col-md-4 mt-3" id="con">
+            <div class="col-md-4 mt-3 filterDiv {{v.vendorCategory}} " id="con">
                 <img class="vimg" src="{{v.vendorDisplayPic}}" alt="">
                 <div class="overlay"></div>
                 <div class="middle">
@@ -279,8 +327,8 @@
         </div>
         <!-- popular near you end -->
 
-        <!-- services start -->
-        <!-- <div id="services">
+            <!-- services start -->
+            <!-- <div id="services">
             <h2 class="mb-sm-3 mb-md-3 mt-5 text-center"><b>Services</b></h2>
             <div id="ser">
                 <div class="row mt-lg-5">
@@ -329,11 +377,11 @@
                 </div>
             </div>
         </div> -->
-        <!-- services end -->
-        <br>
-        <br>
-        <!-- how to use start -->
-        <!-- <div class="mt-lg-5 mb-lg-5" id="htu">
+            <!-- services end -->
+            <br>
+            <br>
+            <!-- how to use start -->
+            <!-- <div class="mt-lg-5 mb-lg-5" id="htu">
             <h2 class="text-center"><b>How to use ?</b></h2>
             <div class="card-deck mt-lg-5">
 
@@ -372,128 +420,174 @@
 
             </div>
         </div> -->
-    </div>
-    <!-- how to use end -->
-    <!-- footer start -->
-    <div class="mt-5 p-5" id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <h5><b>Romp</b></h5> <br>
-                    <a href="Lena Privacy Policy.pdf" style="color: white;">
-                        <p>Privacy policy</p>
-                    </a>
-                    <a href="Lena Terms and Conditions.pdf" style="color: white;">
-                        <p>Terms of use</p>
-                    </a>
-                    <p>Careers</p><br><br>
-                    <p>© Copyright 2019 - All Rights Reserved. Designed by Branciau Technologies</p>
-                </div>
-                <div class="col-md-5">
-                    <p>Social Connects</p> <br>
-                    <a href="https://www.facebook.com/Lenacoin-100724118039916/?modal=admin_todo_tour"
-                        style="color: white;"> <i class="fa fa-facebook-square ml-1 mr-1" style="font-size: 30px;"></i>
-                    </a>
-                    <a href="https://www.instagram.com/lena.co.in1/" style="color: white;"> <i
-                            class="fa fa-instagram ml-1 mr-1" style="font-size: 30px;"></i> </a>
-                    <a href="https://wa.me/917981701250" style="color: white;"> <i class="fa fa-whatsapp ml-1 mr-1"
-                            style="font-size: 30px;"></i> </a>
+        </div>
+        <!-- how to use end -->
+        <!-- footer start -->
+        <div class="mt-5 p-5" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h5><b>Romp</b></h5> <br>
+                        <a href="Lena Privacy Policy.pdf" style="color: white;">
+                            <p>Privacy policy</p>
+                        </a>
+                        <a href="Lena Terms and Conditions.pdf" style="color: white;">
+                            <p>Terms of use</p>
+                        </a>
+                        <p>Careers</p><br><br>
+                        <p>© Copyright 2019 - All Rights Reserved. Designed by Branciau Technologies</p>
+                    </div>
+                    <div class="col-md-5">
+                        <p>Social Connects</p> <br>
+                        <a href="https://www.facebook.com/Lenacoin-100724118039916/?modal=admin_todo_tour"
+                            style="color: white;"> <i class="fa fa-facebook-square ml-1 mr-1"
+                                style="font-size: 30px;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/lena.co.in1/" style="color: white;"> <i
+                                class="fa fa-instagram ml-1 mr-1" style="font-size: 30px;"></i> </a>
+                        <a href="https://wa.me/917981701250" style="color: white;"> <i class="fa fa-whatsapp ml-1 mr-1"
+                                style="font-size: 30px;"></i> </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- footer end -->
+        <!-- footer end -->
 
-    <!-- User login modal start -->
-    <!-- Modal -->
-    <div class="modal fade" id="u_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="/user/login" method="POST" encType="multipart/form-data">
-                        Email <br>
-                        <input type="email" name="email" class="form-control" required id=""> <br>
-                        Password <br>
-                        <input type="password" name="password" required class="form-control" id=""> <br><br>
-                        <button class="btn btn-primary">Login</button>
-                    </form><br>
-                    <p>Not yet registered. <a href="/user/register">Register Now!</a></p>
+        <!-- User login modal start -->
+        <!-- Modal -->
+        <div class="modal fade" id="u_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/user/login" method="POST" encType="multipart/form-data">
+                            Email <br>
+                            <input type="email" name="email" class="form-control" required id=""> <br>
+                            Password <br>
+                            <input type="password" name="password" required class="form-control" id=""> <br><br>
+                            <button class="btn btn-primary">Login</button>
+                        </form><br>
+                        <p>Not yet registered. <a href="/user/register">Register Now!</a></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- User login modal end -->
+        <!-- User login modal end -->
 
-    <!-- Vendor login modal start -->
-    <!-- Modal -->
-    <div class="modal fade" id="v_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Vendor Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="/vendor/login/validate" method="POST" encType="multipart/form-data">
-                        email <br>
-                        <input type="email" required name="vendorBusinessEmail" class="form-control" id=""> <br>
-                        Password <br>
-                        <input type="password" required name="password" class="form-control" id=""> <br><br>
-                        <button class="btn btn-primary">Login</button>
-                    </form>
+        <!-- Vendor login modal start -->
+        <!-- Modal -->
+        <div class="modal fade" id="v_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Vendor Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/vendor/login/validate" method="POST" encType="multipart/form-data">
+                            email <br>
+                            <input type="email" required name="vendorBusinessEmail" class="form-control" id=""> <br>
+                            Password <br>
+                            <input type="password" required name="password" class="form-control" id=""> <br><br>
+                            <button class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Vendor login modal end -->
+        <!-- Vendor login modal end -->
 
-    <!-- User Register modal start -->
-    <!-- Modal -->
-    <div class="modal fade" id="u_register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="/user/store" method="POST" encType="multipart/form-data">
-                        Username <br>
-                        <input type="text" name="username" required class="form-control" id=""> <br>
-                        Email <br>
-                        <input type="email" name="email" required class="form-control" id=""> <br>
-                        Mobile <br>
-                        <input type="text" name="mobile" required class="form-control" id=""> <br><br>
-                        H.NO <br>
-                        <input type="text" name="hno" required class="form-control" id=""> <br><br>
-                        Area <br>
-                        <input type="text" name="area" required class="form-control" id=""> <br><br>
-                        City <br>
-                        <input type="text" name="city" required class="form-control" id=""> <br><br>
-                        Pincode <br>
-                        <input type="text" name="pincode" required class="form-control" id=""> <br><br>
-                        Password <br>
-                        <input type="password" name="password" required class="form-control" id=""> <br><br>
-                        <button class="btn btn-primary">Register</button>
-                    </form>
+        <!-- User Register modal start -->
+        <!-- Modal -->
+        <div class="modal fade" id="u_register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">User Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/user/store" method="POST" encType="multipart/form-data">
+                            Username <br>
+                            <input type="text" name="username" required class="form-control" id=""> <br>
+                            Email <br>
+                            <input type="email" name="email" required class="form-control" id=""> <br>
+                            Mobile <br>
+                            <input type="text" name="mobile" required class="form-control" id=""> <br><br>
+                            H.NO <br>
+                            <input type="text" name="hno" required class="form-control" id=""> <br><br>
+                            Area <br>
+                            <input type="text" name="area" required class="form-control" id=""> <br><br>
+                            City <br>
+                            <input type="text" name="city" required class="form-control" id=""> <br><br>
+                            Pincode <br>
+                            <input type="text" name="pincode" required class="form-control" id=""> <br><br>
+                            Password <br>
+                            <input type="password" name="password" required class="form-control" id=""> <br><br>
+                            <button class="btn btn-primary">Register</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- User Register modal end -->
+        <!-- User Register modal end -->
 </body>
+<script>
+    filterSelection("all")
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+        }
+    }
+
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn1");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
+
 
 </html>
