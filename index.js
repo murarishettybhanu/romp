@@ -50,7 +50,7 @@ const billController = require('./controllers/bill');
 const adminVendorBlockController = require('./controllers/adminVendorBlock');
 
 const app = new express();
-mongoose.connect("mongodb://localhost/romp", { useNewUrlParser: true  ,  useCreateIndex: true });
+mongoose.connect("mongodb://localhost/lena1", { useNewUrlParser: true  ,  useCreateIndex: true });
 
 const mongoStore = connectMongo(expressSession);
 
