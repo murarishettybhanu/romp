@@ -80,13 +80,15 @@ app.use("*", (req, res, next) => {
   next();
 });
 
+const auth = require("./middleware/auth");
+
 app.get('/',homePageController);
 app.get('/vendorRegister', vendorRegisterController);
 app.post('/vendor/store', vendoStoreController);
 app.get('/vendor/login',vendorLoginController);
 app.post('/vendor/login/validate',vendorValidatController);
-app.get('/vendor/homePage',vendorHomePageController);
-app.get('/vendor/products/list',vendorProductListController);
+app.get('/vendor/homePage',auth,vendorHomePageController);
+app.get('/vendor/products/list',auth,vendorProductListController);
 
 app.post('/user/store',storeUserController);
 app.post('/user/login',loginUserController);
@@ -95,28 +97,28 @@ app.post('/product/store',storeProduct);
 app.post('/checkout/:id',checkoutController)
 app.get('/logout',logoutController);
 app.get('/product/add',addProductController);
-app.get('/createPost',createPostController);
+app.get('/createPost',auth,createPostController);
 app.post('/post/store',storePostController);
 app.get('/vendor/:id',vendorUserProfileController);
 app.get('/buy/:id',vendorUserBuyControll)
 app.get('/social',socialController)
 app.get('/deletePost/:id',deletePostController)
-app.get('/deleteProduct/:id',deleteProductController);
+app.get('/deleteProduct/:id',auth,deleteProductController);
 app.get('/orders',ordersController);
 app.get('/myorders',myordersController);
 app.post('/updatestock/:id',updateStockController);
-app.get('/product/edit/:id',editProductController);
+app.get('/product/edit/:id',auth,editProductController);
 app.post('/product/update/:id',updateController);
 app.get('/accept/:id',acceptOrderController);
 app.get('/reject/:id',rejectOrderController);
 app.get('/cancel/:id',cancelOrderController);
 app.get('/delivered/:id',deliveredOrderController);
-app.get('/pendingOrders',pendingOrdersController);
+app.get('/pendingOrders',auth,pendingOrdersController);
 app.get('/admin/carousel',carouselController);
 app.post('/storeCarousel',storeCarouselController);
 app.get('/admin/vendors',adminVendorController);
-app.get('/customerChat',customerChatController);
-app.post('/addSubCategory',addSubCategoryController);
+app.get('/customerChat',auth,customerChatController);
+app.post('/addSubCategory',auth,addSubCategoryController);
 app.get('/bill/:id', billController);
 app.get('/admin/:var/:id',adminVendorBlockController);
 
